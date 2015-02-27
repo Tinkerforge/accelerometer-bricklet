@@ -59,6 +59,11 @@ void invocation(const ComType com, const uint8_t *data) {
 			break;
 		}
 
+		case FID_GET_TEMPERATURE: {
+			get_temperature(com, (GetTemperature*)data);
+			break;
+		}
+
 		default: {
 			BA->com_return_error(data, sizeof(MessageHeader), MESSAGE_ERROR_CODE_NOT_SUPPORTED, com);
 			break;
@@ -76,5 +81,38 @@ void destructor(void) {
 }
 
 void tick(const uint8_t tick_type) {
+	if(tick_type & TICK_TASK_TYPE_CALCULATION) {
+		update_acceleration_values();
+	}
+
 	simple_tick(tick_type);
+}
+
+void get_temperature(const ComType com, const GetTemperature *data) {
+	GetTemperatureReturn gtr;
+
+	gtr.header         = data->header;
+	gtr.header.length  = sizeof(GetTemperatureReturn);
+	lis3dsh_read_register(REG_OUT_T, 1, (uint8_t*)(&gtr.temperature));
+
+	BA->send_blocking_with_timeout(&gtr, sizeof(GetTemperatureReturn), com);
+}
+
+void update_acceleration_values(void) {
+	int16_t values[3] = {0, 0, 0};
+	lis3dsh_read_register(REG_OUT_X_L, 3*2, (uint8_t*)values);
+	BC->last_value1[0] = BC->value1[0];
+	BC->last_value2[0] = BC->value2[0];
+	BC->last_value3[0] = BC->value3[0];
+	BC->value1[0] = values[0];
+	BC->value2[0] = values[1];
+	BC->value3[0] = values[2];
+}
+
+void lis3dsh_read_register(const uint8_t reg, const uint8_t length, uint8_t *data) {
+	// TODO
+}
+
+void lis3dsh_write_register(const uint8_t reg, const uint8_t length, const uint8_t *data) {
+	// TODO
 }
