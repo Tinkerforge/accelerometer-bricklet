@@ -27,6 +27,9 @@
 #include "config.h"
 
 #define I2C_EEPROM_ADDRESS_HIGH 84
+#define I2C_ADDRESS_HIGH        0b0011101
+#define I2C_ADDRESS_LOW         0b0011110
+
 #define SIMPLE_UNIT_ACCELERATION 0
 
 const SimpleMessageProperty smp[] = {
@@ -109,10 +112,40 @@ void update_acceleration_values(void) {
 	BC->value3[0] = values[2];
 }
 
+uint8_t lis3dsh_get_address(void) {
+	if(BS->address == I2C_EEPROM_ADDRESS_HIGH) {
+		return I2C_ADDRESS_HIGH;
+	} else {
+		return I2C_ADDRESS_LOW;
+	}
+}
+
 void lis3dsh_read_register(const uint8_t reg, const uint8_t length, uint8_t *data) {
-	// TODO
+	const uint8_t port = BS->port - 'a';
+	BA->bricklet_select(port);
+
+	BA->TWID_Read(BA->twid,
+	              lis3dsh_get_address(),
+	              reg,
+	              1,
+	              data,
+	              length,
+	              NULL);
+
+	BA->bricklet_deselect(port);
 }
 
 void lis3dsh_write_register(const uint8_t reg, const uint8_t length, const uint8_t *data) {
-	// TODO
+	const uint8_t port = BS->port - 'a';
+	BA->bricklet_select(port);
+
+	BA->TWID_Write(BA->twid,
+	               lis3dsh_get_address(),
+	               reg,
+	               1,
+	               (uint8_t*)data,
+	               length,
+	               NULL);
+
+	BA->bricklet_deselect(port);
 }
