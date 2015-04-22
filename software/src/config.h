@@ -39,6 +39,10 @@
 
 #define BRICKLET_DEVICE_IDENTIFIER 250
 
+#define PIN_INT1 (BS->pin2_da)  // TODO: Change to INT2 in production version
+#define PIN_INT2 (BS->pin3_pwm) // TODO: Change to INT1 in production version
+#define PIN_LED  (BS->pin4_io)
+
 #define LOGGING_LEVEL LOGGING_DEBUG
 #define DEBUG_BRICKLET 0
 
@@ -78,6 +82,14 @@ typedef struct {
 	char     threshold_option_save[NUM_SIMPLE_VALUES];
 
 	uint32_t tick;
+
+	uint8_t data_rate;
+	uint8_t filter_bandwidth;
+	uint8_t full_scale;
+
+	int8_t temperature;
+	uint16_t temperature_counter;
+	bool led_value;
 } BrickContext;
 
 #endif
