@@ -33,8 +33,13 @@
 #define FID_SET_DEBOUNCE_PERIOD 6
 #define FID_GET_DEBOUNCE_PERIOD 7
 #define FID_GET_TEMPERATURE 8
-#define FID_ACCELERATION 9
-#define FID_ACCELERATION_REACHED 10
+#define FID_SET_CONFIGURATION 9
+#define FID_GET_CONFIGURATION 10
+#define FID_LED_ON 11
+#define FID_LED_OFF 12
+#define FID_IS_LED_ON 13
+#define FID_ACCELERATION 14
+#define FID_ACCELERATION_REACHED 15
 
 typedef struct {
 	MessageHeader header;
@@ -42,15 +47,58 @@ typedef struct {
 
 typedef struct {
 	MessageHeader header;
-	int8_t temperature;
+	int16_t temperature;
 } __attribute__((__packed__)) GetTemperatureReturn;
 
+typedef struct {
+	MessageHeader header;
+	uint8_t data_rate;
+	uint8_t full_scale;
+	uint8_t filter_bandwidth;
+} __attribute__((__packed__)) SetConfiguration;
+
+typedef struct {
+	MessageHeader header;
+} __attribute__((__packed__)) GetConfiguration;
+
+typedef struct {
+	MessageHeader header;
+	uint8_t data_rate;
+	uint8_t full_scale;
+	uint8_t filter_bandwidth;
+} __attribute__((__packed__)) GetConfigurationReturn;
+
+
+typedef struct {
+	MessageHeader header;
+} __attribute__((__packed__)) LEDOn;
+
+typedef struct {
+	MessageHeader header;
+} __attribute__((__packed__)) LEDOff;
+
+typedef struct {
+	MessageHeader header;
+} __attribute__((__packed__)) IsLEDOn;
+
+typedef struct {
+	MessageHeader header;
+	bool value;
+} __attribute__((__packed__)) IsLEDOnReturn;
+
 void get_temperature(const ComType com, const GetTemperature *data);
+void set_configuration(const ComType com, const SetConfiguration *data);
+void get_configuration(const ComType com, const GetConfiguration *data);
+void led_on(const ComType com, const LEDOn *data);
+void led_off(const ComType com, const LEDOff *data);
+void is_led_on(const ComType com, const IsLEDOn *data);
 
 void invocation(const ComType com, const uint8_t *data);
 void constructor(void);
 void destructor(void);
 void tick(const uint8_t tick_type);
+
+void apply_configuration(void);
 
 void update_acceleration_values(void);
 void lis3dsh_read_register(const uint8_t reg, const uint8_t length, uint8_t *data);
