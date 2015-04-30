@@ -39,8 +39,8 @@
 
 #define BRICKLET_DEVICE_IDENTIFIER 250
 
-#define PIN_INT1 (BS->pin2_da)  // TODO: Change to INT2 in production version
-#define PIN_INT2 (BS->pin3_pwm) // TODO: Change to INT1 in production version
+#define PIN_INT2 (BS->pin2_da)
+#define PIN_INT1 (BS->pin3_pwm)
 #define PIN_LED  (BS->pin4_io)
 
 #define LOGGING_LEVEL LOGGING_DEBUG
