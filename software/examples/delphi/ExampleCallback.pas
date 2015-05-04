@@ -29,9 +29,9 @@ var
 procedure TExample.AccelerationCB(sender: TBrickletAccelerometer; const x: SmallInt;
                                   const y: SmallInt; const z: SmallInt);
 begin
-    WriteLn(Format('Acceleration(X): %f', [x/1000.0]));
-    WriteLn(Format('Acceleration(Y): %f', [y/1000.0]));
-    WriteLn(Format('Acceleration(Z): %f', [z/1000.0]));
+    WriteLn(Format('Acceleration(X): %fG', [x/1000.0]));
+    WriteLn(Format('Acceleration(Y): %fG', [y/1000.0]));
+    WriteLn(Format('Acceleration(Z): %fG', [z/1000.0]));
     WriteLn('');
 end;
 
