@@ -230,9 +230,6 @@ void is_led_on(const ComType com, const IsLEDOn *data) {
 void update_acceleration_values(void) {
 	int16_t values[3] = {0, 0, 0};
 	lis3dsh_read_register(REG_OUT_X_L, 3*2, (uint8_t*)values);
-	BC->last_value1[0] = BC->value1[0];
-	BC->last_value2[0] = BC->value2[0];
-	BC->last_value3[0] = BC->value3[0];
 	BC->value1[0] = VALUE_TO_MG(values[0]);
 	BC->value2[0] = VALUE_TO_MG(values[1]);
 	BC->value3[0] = VALUE_TO_MG(values[2]);
