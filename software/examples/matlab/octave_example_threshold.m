@@ -26,7 +26,7 @@ end
 
 % Callback function for acceleration callback
 function cb_reached(e)
-    fprintf("Acceleration(X): %gG\n", e.x/1000.0);
-    fprintf("Acceleration(Y): %gG\n", e.y/1000.0);
-    fprintf("Acceleration(Z): %gG\n", e.z/1000.0);
+    fprintf("Acceleration(X): %gG\n", e.x.intValue()/1000.0);
+    fprintf("Acceleration(Y): %gG\n", e.y.intValue()/1000.0);
+    fprintf("Acceleration(Z): %gG\n", e.z.intValue()/1000.0);
 end

@@ -13,9 +13,9 @@ function octave_example_simple()
 
     % Get current acceleration
     acceleration = acc.getAcceleration();
-    fprintf("Acceleration(X): %gG\n", acceleration.x / 1000.0);
-    fprintf("Acceleration(Y): %gG\n", acceleration.y / 1000.0);
-    fprintf("Acceleration(Z): %gG\n", acceleration.z / 1000.0);
+    fprintf("Acceleration(X): %gG\n", acceleration.x.intValue()/1000.0);
+    fprintf("Acceleration(Y): %gG\n", acceleration.y.intValue()/1000.0);
+    fprintf("Acceleration(Z): %gG\n", acceleration.z.intValue()/1000.0);
 
     input("Press any key to exit...\n", "s");
     ipcon.disconnect();

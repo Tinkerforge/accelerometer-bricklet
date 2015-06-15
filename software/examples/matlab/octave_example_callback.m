@@ -3,7 +3,7 @@ function octave_example_callback()
 
     HOST = "localhost";
     PORT = 4223;
-    UID = "abc"; % Change to your UID
+    UID = "sad"; % Change to your UID
 
     ipcon = java_new("com.tinkerforge.IPConnection"); % Create IP connection
     acc = java_new("com.tinkerforge.BrickletAccelerometer", UID, ipcon); % Create device object
@@ -25,7 +25,7 @@ end
 
 % Callback function for acceleration callback
 function cb_acceleration(e)
-    fprintf("Acceleration(X): %gG\n", e.r/1000.0);
-    fprintf("Acceleration(Y): %gG\n", e.g/1000.0);
-    fprintf("Acceleration(Z): %gG\n", e.b/1000.0);
+    fprintf("Acceleration(X): %gG\n", (e.x.intValue()/1000.0));
+    fprintf("Acceleration(Y): %gG\n", (e.y.intValue()/1000.0));
+    fprintf("Acceleration(Z): %gG\n", (e.z.intValue()/1000.0));
 end
