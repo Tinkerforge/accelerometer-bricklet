@@ -16,9 +16,9 @@ acc@SetDebouncePeriod[10000]
 (* Callback for acceleration threshold reached *)
 AccelerationReachedCB[sender_,x_,y_,z_]:=
  Module[{},
-  Print["Acceleration(X): "<>ToString[N[Quantity[x,"G/1000"]]]]
-  Print["Acceleration(Y): "<>ToString[N[Quantity[y,"G/1000"]]]]
-  Print["Acceleration(Z): "<>ToString[N[Quantity[z,"G/1000"]]]]
+  Print["Acceleration(X): "<>ToString[N[Quantity[x,"mG"]]]];
+  Print["Acceleration(Y): "<>ToString[N[Quantity[y,"mG"]]]];
+  Print["Acceleration(Z): "<>ToString[N[Quantity[z,"mG"]]]]
  ]
 
 AddEventHandler[acc@AccelerationReached,AccelerationReachedCB]

@@ -1,0 +1,147 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[      5253,        146]
+NotebookOptionsPosition[      4822,        125]
+NotebookOutlinePosition[      5161,        140]
+CellTagsIndexPosition[      5118,        137]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"LoadNETAssembly", "[", 
+  RowBox[{"\"\<Tinkerforge\>\"", ",", 
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.643542037418895*^9, 3.643542037424375*^9}, {
+  3.64354318608257*^9, 3.643543227900782*^9}, {3.643543298083702*^9, 
+  3.643543298145677*^9}, {3.643543699761508*^9, 3.643543701786042*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"host", "=", "\"\<localhost\>\""}], "\n", 
+ RowBox[{"port", "=", "4223"}], "\n", 
+ RowBox[{
+  RowBox[{"uid", "=", "\"\<sad\>\""}], 
+  RowBox[{"(*", " ", 
+   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], " ", "*)"}], "\n", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Create", " ", "IPConnection", " ", "and", " ", "device", " ", "object"}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ipcon", "=", 
+  RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
+ RowBox[{"acc", "=", 
+  RowBox[{"NETNew", "[", 
+   RowBox[{
+   "\"\<Tinkerforge.BrickletAccelerometer\>\"", ",", "uid", ",", "ipcon"}], 
+   "]"}]}], "\n", 
+ RowBox[{
+  RowBox[{"ipcon", "@", 
+   RowBox[{"Connect", "[", 
+    RowBox[{"host", ",", "port"}], "]"}]}], "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Get", " ", "threshold", " ", "callbacks", " ", "with", " ", "a", " ", 
+    "debounce", " ", "time", " ", "of", " ", "10", " ", "seconds", " ", 
+    RowBox[{"(", 
+     RowBox[{"10000", "ms"}], ")"}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"acc", "@", 
+   RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "Callback", " ", "for", " ", "acceleration", " ", "threshold", " ", 
+    "reached"}], " ", "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"AccelerationReachedCB", "[", 
+    RowBox[{"sender_", ",", "x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Acceleration(X): \>\"", "<>", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{"x", ",", "\"\<mG\>\""}], "]"}], "]"}], "]"}]}], "]"}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Acceleration(Y): \>\"", "<>", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{"y", ",", "\"\<mG\>\""}], "]"}], "]"}], "]"}]}], "]"}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"Print", "[", 
+       RowBox[{"\"\<Acceleration(Z): \>\"", "<>", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"N", "[", 
+          RowBox[{"Quantity", "[", 
+           RowBox[{"z", ",", "\"\<mG\>\""}], "]"}], "]"}], "]"}]}], "]"}]}]}],
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"AddEventHandler", "[", 
+   RowBox[{
+    RowBox[{"acc", "@", "AccelerationReached"}], ",", 
+    "AccelerationReachedCB"}], "]"}], "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{
+    "Configure", " ", "threshold", " ", "for", " ", "acceleration", " ", 
+     "values", " ", "X"}], ",", " ", 
+    RowBox[{
+    "Y", " ", "or", " ", "Z", " ", "greater", " ", "than", " ", "2", "G"}]}], 
+   " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"option", "=", 
+  "Tinkerforge`BrickletAccelerometer`THRESHOLDUOPTIONUGREATER"}], "\n", 
+ RowBox[{
+  RowBox[{"acc", "@", 
+   RowBox[{"SetAccelerationCallbackThreshold", "[", 
+    RowBox[{
+    "option", ",", "2000", ",", "0", ",", "2000", ",", "0", ",", "2000", ",", 
+     "0"}], "]"}]}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], 
+  "\[IndentingNewLine]", "\n", 
+  RowBox[{"(*", " ", 
+   RowBox[{"Clean", " ", "up"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{"ipcon", "@", 
+  RowBox[{"Disconnect", "[", "]"}]}], "\n", 
+ RowBox[{"ReleaseNETObject", "[", "acc", "]"}], "\n", 
+ RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
+ CellChangeTimes->{{3.643542049975746*^9, 3.64354212261869*^9}, {
+   3.643543622415845*^9, 3.643543628561249*^9}, {3.6435437684756813`*^9, 
+   3.64354378171213*^9}, 3.643605539128677*^9}]
+},
+WindowSize->{1096, 856},
+WindowMargins->{{Automatic, 124}, {94, Automatic}},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[400, 13, 478, 9, 55, "Input"],
+Cell[881, 24, 3937, 99, 715, "Input"]
+}
+]
+*)
+

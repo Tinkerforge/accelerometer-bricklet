@@ -14,9 +14,9 @@ x=0;y=0;z=0
 
 (* Get current acceleration *)
 acc@GetAcceleration[x,y,z]
-Print["Acceleration(X): "<>ToString[N[Quantity[x,"G/1000"]]]]
-Print["Acceleration(Y): "<>ToString[N[Quantity[y,"G/1000"]]]]
-Print["Acceleration(Z): "<>ToString[N[Quantity[z,"G/1000"]]]]
+Print["Acceleration(X): "<>ToString[N[Quantity[x,"mG"]]]]
+Print["Acceleration(Y): "<>ToString[N[Quantity[y,"mG"]]]]
+Print["Acceleration(Z): "<>ToString[N[Quantity[z,"mG"]]]]
 
 (* Clean up *)
 ipcon@Disconnect[]

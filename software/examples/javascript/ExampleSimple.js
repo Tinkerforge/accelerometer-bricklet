@@ -22,7 +22,6 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
                 console.log('Acceleration(X): ' + x/1000.0 + 'G');
                 console.log('Acceleration(Y): ' + y/1000.0 + 'G');
                 console.log('Acceleration(Z): ' + z/1000.0 + 'G');
-                console.log();
             },
             function(error) {
                 console.log('Error: '+error);

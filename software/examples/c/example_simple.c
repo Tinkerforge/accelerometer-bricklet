@@ -33,7 +33,6 @@ int main() {
 	printf("Acceleration(X): %fG\n", x/1000.0);
 	printf("Acceleration(Y): %fG\n", y/1000.0);
 	printf("Acceleration(Z): %fG\n", z/1000.0);
-	printf("\n");
 
 	printf("Press key to exit\n");
 	getchar();

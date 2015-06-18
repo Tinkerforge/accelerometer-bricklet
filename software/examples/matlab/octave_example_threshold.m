@@ -16,7 +16,7 @@ function octave_example_threshold()
 
     % Configure threshold for acceleration values X, Y or Z greater than 2G
     acc.setAccelerationCallbackThreshold(acc.THRESHOLD_OPTION_GREATER, 2000, 0, 2000, 0, 2000, 0);
-    
+
     % Register threshold reached callback to function cb_reached
     acc.addAccelerationReachedCallback(@cb_reached);
 

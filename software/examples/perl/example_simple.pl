@@ -19,7 +19,6 @@ my ($x, $y, $z) = $acc->get_acceleration();
 print "Acceleration(X): " . $x/1000.0 . "G\n";
 print "Acceleration(Y): " . $y/1000.0 . "G\n";
 print "Acceleration(Z): " . $z/1000.0 . "G\n";
-print "\n";
 
 print "Press any key to exit...\n";
 <STDIN>;

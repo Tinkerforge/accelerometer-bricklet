@@ -13,9 +13,9 @@ const UID = 'sad'; // Change to your UID
 // Callback function for acceleration
 function cb_acceleration($x, $y, $z)
 {
-    echo "Acceleration(X): " . $x/1000.0 ."\n";
-    echo "Acceleration(Y): " . $y/1000.0 ."\n";
-    echo "Acceleration(Z): " . $z/1000.0 ."\n";
+    echo "Acceleration(X): " . $x/1000.0 . "\n";
+    echo "Acceleration(Y): " . $y/1000.0 . "\n";
+    echo "Acceleration(Z): " . $z/1000.0 . "\n";
     echo "\n";
 }
 

@@ -41,7 +41,6 @@ begin
   WriteLn(Format('Accelerometer(X): %fG', [x/1000.0]));
   WriteLn(Format('Accelerometer(Y): %fG', [y/1000.0]));
   WriteLn(Format('Accelerometer(Z): %fG', [z/1000.0]));
-  WriteLn();
 
   WriteLn('Press key to exit');
   ReadLn;

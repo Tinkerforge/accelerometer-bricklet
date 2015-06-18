@@ -12,8 +12,8 @@ type
     ipcon: TIPConnection;
     acc: TBrickletAccelerometer;
   public
-    procedure AccelerationCB(sender: TBrickletAccelerometer; const x: SmallInt; 
- 	                         const y: SmallInt; const z: SmallInt);
+    procedure AccelerationCB(sender: TBrickletAccelerometer; const x: smallint;
+                             const y: smallint; const z: smallint);
     procedure Execute;
   end;
 
@@ -26,8 +26,8 @@ var
   e: TExample;
 
 { Callback function for acceleration callback }
-procedure TExample.AccelerationCB(sender: TBrickletAccelerometer; const x: SmallInt;
-                                  const y: SmallInt; const z: SmallInt);
+procedure TExample.AccelerationCB(sender: TBrickletAccelerometer; const x: smallint;
+                                  const y: smallint; const z: smallint);
 begin
     WriteLn(Format('Acceleration(X): %fG', [x/1000.0]));
     WriteLn(Format('Acceleration(Y): %fG', [y/1000.0]));

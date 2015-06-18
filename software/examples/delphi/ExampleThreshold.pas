@@ -12,8 +12,8 @@ type
     ipcon: TIPConnection;
     acc: TBrickletAccelerometer;
   public
-    procedure ReachedCB(sender: TBrickletAccelerometer; const x: SmallInt;
-                        const y: SmallInt; const z: SmallInt);
+    procedure ReachedCB(sender: TBrickletAccelerometer; const x: smallint;
+                        const y: smallint; const z: smallint);
     procedure Execute;
   end;
 
@@ -26,8 +26,8 @@ var
   e: TExample;
 
 { Callback for acceleration threshold reached }
-procedure TExample.ReachedCB(sender: TBrickletAccelerometer; const x: SmallInt;
-                             const y: SmallInt; const z: SmallInt);
+procedure TExample.ReachedCB(sender: TBrickletAccelerometer; const x: smallint;
+                             const y: smallint; const z: smallint);
 begin
     WriteLn(Format('Acceleration(X): %fG', [x/1000.0]));
     WriteLn(Format('Acceleration(Y): %fG', [y/1000.0]));

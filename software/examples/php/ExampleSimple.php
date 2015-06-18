@@ -19,9 +19,9 @@ $ipcon->connect(HOST, PORT); // Connect to brickd
 // Get current acceleration
 $acceleration = $acc->getAcceleration();
 
-echo "Acceleration(X): ".$acceleration['x']/1000.0."G\n";
-echo "Acceleration(Y): ".$acceleration['y']/1000.0."G\n";
-echo "Acceleration(Z): ".$acceleration['z']/1000.0."G\n";
+echo "Acceleration(X): " . $acceleration['x']/1000.0 . "G\n";
+echo "Acceleration(Y): " . $acceleration['y']/1000.0 . "G\n";
+echo "Acceleration(Z): " . $acceleration['z']/1000.0 . "G\n";
 echo "\n";
 
 echo "Press key to exit\n";

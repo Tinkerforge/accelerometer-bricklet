@@ -21,7 +21,6 @@ class Example
 		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + "G");
 		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + "G");
 		System.Console.WriteLine("Acceleration(Z): " + z/1000.0 + "G");
-		System.Console.WriteLine("");
 
 		System.Console.WriteLine("Press enter to exit");
 		System.Console.ReadLine();
