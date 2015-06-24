@@ -41,7 +41,7 @@ int main() {
 	// Register color callback to function cb_acceleration
 	accelerometer_register_callback(&acc,
 	                                ACCELEROMETER_CALLBACK_ACCELERATION,
-	                                (void *)cb_acceleration/1000.0,
+	                                (void *)cb_acceleration,
 	                                NULL);
 
 	printf("Press key to exit\n");
