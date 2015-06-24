@@ -12,11 +12,11 @@ ipcon@Connect[host,port]
 
 x=0;y=0;z=0
 
-(* Get current acceleration *)
+(* Get current acceleration (unit is g/1000) *)
 acc@GetAcceleration[x,y,z]
-Print["Acceleration(X): "<>ToString[N[Quantity[x,"mG"]]]]
-Print["Acceleration(Y): "<>ToString[N[Quantity[y,"mG"]]]]
-Print["Acceleration(Z): "<>ToString[N[Quantity[z,"mG"]]]]
+Print["Acceleration(X): "<>ToString[N[Quantity[x,"mg"]]]]
+Print["Acceleration(Y): "<>ToString[N[Quantity[y,"mg"]]]]
+Print["Acceleration(Z): "<>ToString[N[Quantity[z,"mg"]]]]
 
 (* Clean up *)
 ipcon@Disconnect[]

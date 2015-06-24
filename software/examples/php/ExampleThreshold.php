@@ -13,9 +13,9 @@ const UID = 'sad'; // Change to your UID
 // Callback for acceleration threshold reached
 function cb_reached($x, $y, $z)
 {
-    echo "Acceleration(X): " . $x/1000.0 . "\n";
-    echo "Acceleration(Y): " . $y/1000.0 . "\n";
-    echo "Acceleration(Z): " . $z/1000.0 . "\n";
+    echo "Acceleration(X): " . $x/1000.0 . " g\n";
+    echo "Acceleration(Y): " . $y/1000.0 . " g\n";
+    echo "Acceleration(Z): " . $z/1000.0 . " g\n";
     echo "\n";
 }
 
@@ -31,8 +31,8 @@ $acc->setDebouncePeriod(10000);
 // Register threshold reached callback to function cb_reached
 $acc->registerCallback(BrickletAccelerometer::CALLBACK_ACCELERATION_REACHED, 'cb_reached');
 
-// Configure threshold for acceleration values X, Y or Z greater than 2G
-$acc->setAccelerationCallbackThreshold('>', 2000, 0, 2000, 0, 2000, 0);
+// Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
+$acc->setAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
 echo "Press ctrl+c to exit\n";
 $ipcon->dispatchCallbacks(-1); // Dispatch callbacks forever

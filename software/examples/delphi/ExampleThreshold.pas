@@ -29,9 +29,9 @@ var
 procedure TExample.ReachedCB(sender: TBrickletAccelerometer; const x: smallint;
                              const y: smallint; const z: smallint);
 begin
-    WriteLn(Format('Acceleration(X): %fG', [x/1000.0]));
-    WriteLn(Format('Acceleration(Y): %fG', [y/1000.0]));
-    WriteLn(Format('Acceleration(Z): %fG', [z/1000.0]));
+    WriteLn(Format('Acceleration(X): %f g', [x/1000.0]));
+    WriteLn(Format('Acceleration(Y): %f g', [y/1000.0]));
+    WriteLn(Format('Acceleration(Z): %f g', [z/1000.0]));
     WriteLn('');
 end;
 
@@ -53,8 +53,8 @@ begin
   { Register threshold reached callback to procedure ReachedCB }
   acc.OnAccelerationReached := {$ifdef FPC}@{$endif}ReachedCB;
 
-  { Configure threshold for acceleration values X, Y or Z greather than 2000 }
-  acc.SetAccelerationCallbackThreshold('>', 2000, 0, 2000, 0, 2000, 0);
+  { Configure threshold for acceleration values X, Y or Z "greather than 2g" (unit is g/1000) }
+  acc.SetAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
   WriteLn('Press key to exit');
   ReadLn;

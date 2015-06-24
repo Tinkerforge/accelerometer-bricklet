@@ -6,12 +6,12 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "sad"; // Change to your UID
 
-	// Callback function for acceleration callback
+	// Callback function for acceleration callback (parameters have unit g/1000)
 	static void AccelerationCB(BrickletAccelerometer sender, short x, short y, short z)
 	{
-		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + "G");
-		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + "G");
-		System.Console.WriteLine("Acceleration(Z): " + z/1000.0 + "G");
+		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + " g");
+		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + " g");
+		System.Console.WriteLine("Acceleration(Z): " + z/1000.0 + " g");
 		System.Console.WriteLine("");
 	}
 

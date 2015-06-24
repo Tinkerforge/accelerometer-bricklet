@@ -23,9 +23,9 @@ public class ExampleCallback {
 		// Add and implement acceleration listener (called if acceleration changes)
 		acc.addAccelerationListener(new BrickletAccelerometer.AccelerationListener() {
 			public void acceleration(short x, short y, short z) {
-				System.out.println("Accelerometer(X): " + x/1000.0 + "G");
-				System.out.println("Accelerometer(Y): " + y/1000.0 + "G");
-				System.out.println("Accelerometer(Z): " + z/1000.0 + "G");
+				System.out.println("Accelerometer(X): " + x/1000.0 + " g");
+				System.out.println("Accelerometer(Y): " + y/1000.0 + " g");
+				System.out.println("Accelerometer(Z): " + z/1000.0 + " g");
 				System.out.println("");
 			}
 		});

@@ -10,14 +10,14 @@ use constant UID => 'sad'; # Change to your UID
 my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
 my $acc = Tinkerforge::BrickletAccelerometer->new(&UID, $ipcon); # Create device object
 
-# Callback function for acceleration callback
+# Callback function for acceleration callback (parameters have unit g/1000)
 sub cb_acceleration
 {
     my ($x, $y, $z) = @_;
 
-    print "Acceleration(X): " . $x/1000.0 . "G\n";
-    print "Acceleration(Y): " . $y/1000.0 . "G\n";
-    print "Acceleration(Z): " . $z/1000.0 . "G\n";
+    print "Acceleration(X): " . $x/1000.0 . " g\n";
+    print "Acceleration(Y): " . $y/1000.0 . " g\n";
+    print "Acceleration(Z): " . $z/1000.0 . " g\n";
     print "\n";
 }
 

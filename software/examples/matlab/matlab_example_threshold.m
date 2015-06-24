@@ -18,16 +18,16 @@ function matlab_example_threshold()
     % Register threshold reached callback to function cb_reached
     set(acc, 'AccelerationReachedCallback', @(h, e) cb_reached(e));
 
-    % Configure threshold for acceleration values X, Y or Z greater than 2G
-    acc.setAccelerationCallbackThreshold('>', 2000, 0, 2000, 0, 2000, 0);
+    % Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
+    acc.setAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
     input('Press any key to exit...\n', 's');
     ipcon.disconnect();
 end
 
-% Callback for acceleration greater than 2G
+% Callback function for acceleration callback
 function cb_reached(e)
-    fprintf('Acceleration(X): %gG\n', e.x/1000.0);
-    fprintf('Acceleration(Y): %gG\n', e.y/1000.0);
-    fprintf('Acceleration(Z): %gG\n', e.z/1000.0);
+    fprintf('Acceleration(X): %g g\n', e.x/1000.0);
+    fprintf('Acceleration(Y): %g g\n', e.y/1000.0);
+    fprintf('Acceleration(Z): %g g\n', e.z/1000.0);
 end

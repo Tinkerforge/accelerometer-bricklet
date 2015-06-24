@@ -8,11 +8,12 @@ UID = "abc" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_accelerometer import Accelerometer
 
-# Callback function for acceleration callback
+# Callback function for acceleration callback (parameters have unit g/1000)
 def cb_acceleration(x, y, z):
-    print('Acceleration: x -> {0}G, y -> {1}G, z -> {2}G'.format(x / 1000.0, 
-                                                                 y / 1000.0, 
-                                                                 z / 1000.0))
+    print('Acceleration(X): ' + str(x/1000.0) + ' g')
+    print('Acceleration(Y): ' + str(y/1000.0) + ' g')
+    print('Acceleration(Z): ' + str(z/1000.0) + ' g')
+    print('')
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection

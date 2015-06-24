@@ -13,12 +13,12 @@ my $acc = Tinkerforge::BrickletAccelerometer->new(&UID, $ipcon); # Create device
 $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Get current acceleration
+# Get current acceleration (unit is g/1000)
 my ($x, $y, $z) = $acc->get_acceleration();
 
-print "Acceleration(X): " . $x/1000.0 . "G\n";
-print "Acceleration(Y): " . $y/1000.0 . "G\n";
-print "Acceleration(Z): " . $z/1000.0 . "G\n";
+print "Acceleration(X): " . $x/1000.0 . " g\n";
+print "Acceleration(Y): " . $y/1000.0 . " g\n";
+print "Acceleration(Z): " . $z/1000.0 . " g\n";
 
 print "Press any key to exit...\n";
 <STDIN>;

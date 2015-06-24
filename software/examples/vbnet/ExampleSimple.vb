@@ -12,16 +12,16 @@ Module ExampleSimple
         ipcon.Connect(HOST, PORT) ' Connect to brickd
         ' Don't use device before ipcon is connected
 
-        ' Get current acceleration
+        ' Get current acceleration (unit is g/1000)
         Dim x As Short
         Dim y As Short
         Dim z As Short
 
         acc.GetAcceleration(x, y, z)
 
-        System.Console.WriteLine("Acceleration(X): " + (x/1000.0).ToString() + "G")
-        System.Console.WriteLine("Acceleration(Y): " + (y/1000.0).ToString() + "G")
-        System.Console.WriteLine("Acceleration(Z): " + (z/1000.0).ToString() + "G")
+        System.Console.WriteLine("Acceleration(X): " + (x/1000.0).ToString() + " g")
+        System.Console.WriteLine("Acceleration(Y): " + (y/1000.0).ToString() + " g")
+        System.Console.WriteLine("Acceleration(Z): " + (z/1000.0).ToString() + " g")
 
         System.Console.WriteLine("Press key to exit")
         System.Console.ReadLine()

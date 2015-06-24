@@ -8,9 +8,9 @@ Module ExampleThreshold
     ' Callback for acceleration threshold reached
     Sub ReachedCB(ByVal sender As BrickletAccelerometer, ByVal x As Short, _
                   ByVal y As Short, ByVal z As Short)
-        System.Console.WriteLine("Acceleration(X): " + (x/1000.0).ToString() + "G")
-        System.Console.WriteLine("Acceleration(Y): " + (y/1000.0).ToString() + "G")
-        System.Console.WriteLine("Acceleration(Z): " + (z/1000.0).ToString() + "G")
+        System.Console.WriteLine("Acceleration(X): " + (x/1000.0).ToString() + " g")
+        System.Console.WriteLine("Acceleration(Y): " + (y/1000.0).ToString() + " g")
+        System.Console.WriteLine("Acceleration(Z): " + (z/1000.0).ToString() + " g")
         System.Console.WriteLine("")
     End Sub
 
@@ -27,8 +27,8 @@ Module ExampleThreshold
         ' Register threshold reached callback to function ReachedCB
         AddHandler acc.AccelerationReached, AddressOf ReachedCB
 
-        ' Configure threshold for acceleration values X, Y, Z greater than 2G
-        acc.SetAccelerationCallbackThreshold(">", 2000, 0, 2000, 0, 2000, 0)
+        ' Configure threshold for acceleration values X, Y, Z "greater than 2g" (unit is g/1000)
+        acc.SetAccelerationCallbackThreshold(">", 2*1000, 0, 2*1000, 0, 2*1000, 0)
 
         System.Console.WriteLine("Press key to exit")
         System.Console.ReadLine()

@@ -41,12 +41,12 @@
                 // Don't use device before ipcon is connected
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
                     function(connectReason) {
-                        // Get current ccceleration
+                        // Get current ccceleration (unit is g/1000)
                         acc.getAcceleration(
                             function(x, y, z) {
-                                textArea.value += 'Acceleration(X): '+x/1000.0+'G\n';
-                                textArea.value += 'Acceleration(Y): '+y/1000.0+'G\n';
-                                textArea.value += 'Acceleration(Z): '+z/1000.0+'G\n';
+                                textArea.value += 'Acceleration(X): '+x/1000.0+' g\n';
+                                textArea.value += 'Acceleration(Y): '+y/1000.0+' g\n';
+                                textArea.value += 'Acceleration(Z): '+z/1000.0+' g\n';
                                 textArea.scrollTop = textArea.scrollHeight;
                             },
                             function(error) {

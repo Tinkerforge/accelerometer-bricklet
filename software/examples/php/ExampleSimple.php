@@ -16,12 +16,12 @@ $acc = new BrickletAccelerometer(UID, $ipcon); // Create device object
 $ipcon->connect(HOST, PORT); // Connect to brickd
 // Don't use device before ipcon is connected
 
-// Get current acceleration
+// Get current acceleration (unit is g/1000)
 $acceleration = $acc->getAcceleration();
 
-echo "Acceleration(X): " . $acceleration['x']/1000.0 . "G\n";
-echo "Acceleration(Y): " . $acceleration['y']/1000.0 . "G\n";
-echo "Acceleration(Z): " . $acceleration['z']/1000.0 . "G\n";
+echo "Acceleration(X): " . $acceleration['x']/1000.0 . " g\n";
+echo "Acceleration(Y): " . $acceleration['y']/1000.0 . " g\n";
+echo "Acceleration(Z): " . $acceleration['z']/1000.0 . " g\n";
 echo "\n";
 
 echo "Press key to exit\n";

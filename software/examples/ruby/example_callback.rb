@@ -21,11 +21,11 @@ ipcon.connect HOST, PORT # Connect to brickd
 #       acceleration has changed since the last call!
 acc.set_acceleration_callback_period 1000
 
-# Register acceleration callback
+# Register acceleration callback (parameters have unit g/1000)
 acc.register_callback(BrickletAccelerometer::CALLBACK_ACCELERATION) do |x, y, z|
-  puts "Acceleration(X): #{x/1000.0}G"
-  puts "Acceleration(Y): #{y/1000.0}G"
-  puts "Acceleration(Z): #{z/1000.0}G"
+  puts "Acceleration(X): #{x/1000.0} g"
+  puts "Acceleration(Y): #{y/1000.0} g"
+  puts "Acceleration(Z): #{z/1000.0} g"
   puts ''
 end
 

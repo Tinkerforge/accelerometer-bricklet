@@ -18,8 +18,8 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function(connectReason) {
         // Set threshold callbacks with a debounce time of 10 seconds (10000ms)
         acc.setDebouncePeriod(10000);
-        // Configure threshold for acceleration values X, Y or Z greater than 2G
-        acc.setAccelerationCallbackThreshold('>', 2000, 0, 2000, 0, 2000, 0);
+        // Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
+        acc.setAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
     }
 );
 
@@ -27,9 +27,9 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 acc.on(Tinkerforge.BrickletAccelerometer.CALLBACK_ACCELERATION_REACHED,
     // Callback for acceleration threshold reached
     function(x, y, z) {
-        console.log('Acceleration(X): ' + x/1000.0 + 'G');
-        console.log('Acceleration(Y): ' + y/1000.0 + 'G');
-        console.log('Acceleration(Z): ' + z/1000.0 + 'G');
+        console.log('Acceleration(X): ' + x/1000.0 + ' g');
+        console.log('Acceleration(Y): ' + y/1000.0 + ' g');
+        console.log('Acceleration(Z): ' + z/1000.0 + ' g');
         console.log();
     }
 );

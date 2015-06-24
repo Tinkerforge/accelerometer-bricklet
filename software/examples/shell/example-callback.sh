@@ -9,5 +9,5 @@ uid=sad
 #       acceleration has changed since the last call!
 tinkerforge call accelerometer-bricklet $uid set-acceleration-callback-period 1000
 
-# handle incoming acceleration callbacks
+# handle incoming acceleration callbacks (unit is g/1000)
 tinkerforge dispatch accelerometer-bricklet $uid acceleration

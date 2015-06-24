@@ -10,7 +10,7 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'sad'; // Change to your UID
 
-// Callback function for acceleration
+// Callback function for acceleration (parameters have unit g/1000)
 function cb_acceleration($x, $y, $z)
 {
     echo "Acceleration(X): " . $x/1000.0 . "\n";

@@ -14,13 +14,13 @@ class Example
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current acceleration
+		// Get current acceleration (unit is g/1000)
 		short x; short y; short z;
 		acc.GetAcceleration(out x, out y, out z);
 
-		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + "G");
-		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + "G");
-		System.Console.WriteLine("Acceleration(Z): " + z/1000.0 + "G");
+		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + " g");
+		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + " g");
+		System.Console.WriteLine("Acceleration(Z): " + z/1000.0 + " g");
 
 		System.Console.WriteLine("Press enter to exit");
 		System.Console.ReadLine();

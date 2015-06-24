@@ -15,9 +15,9 @@ sub cb_reached
 {
     my ($x, $y, $z) = @_;
 
-    print "Acceleration(X): " . $x/1000.0 . "G\n";
-    print "Acceleration(Y): " . $y/1000.0 . "G\n";
-    print "Acceleration(Z): " . $z/1000.0 . "G\n";
+    print "Acceleration(X): " . $x/1000.0 . " g\n";
+    print "Acceleration(Y): " . $y/1000.0 . " g\n";
+    print "Acceleration(Z): " . $z/1000.0 . " g\n";
     print "\n";
 }
 
@@ -30,8 +30,8 @@ $acc->set_debounce_period(10000);
 # Register threshold reached callback to function cb_reached
 $acc->register_callback($acc->CALLBACK_ACCELERATION_REACHED, 'cb_reached');
 
-# Configure threshold for acceleration values X, Y or Z greater than 2G
-$acc->set_acceleration_callback_threshold('>', 2000, 0, 2000, 0, 2000, 0);
+# Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
+$acc->set_acceleration_callback_threshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
 print "Press any key to exit...\n";
 <STDIN>;

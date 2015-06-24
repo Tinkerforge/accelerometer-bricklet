@@ -15,12 +15,12 @@ ipcon@Connect[host,port]
 (*       acceleration has changed since the last call! *)
 acc@SetAccelerationCallbackPeriod[1000]
 
-(* Callback function for acceleration callback *)
+(* Callback function for acceleration callback (parameters have unit g/1000) *)
 AccelerationCB[sender_,x_,y_,z_]:=
  Module[{},
-  Print["Acceleration(X): "<>ToString[N[Quantity[x,"mG"]]]];
-  Print["Acceleration(Y): "<>ToString[N[Quantity[y,"mG"]]]];
-  Print["Acceleration(Z): "<>ToString[N[Quantity[z,"mG"]]]]
+  Print["Acceleration(X): "<>ToString[N[Quantity[x,"mg"]]]];
+  Print["Acceleration(Y): "<>ToString[N[Quantity[y,"mg"]]]];
+  Print["Acceleration(Z): "<>ToString[N[Quantity[z,"mg"]]]]
  ]
 
 AddEventHandler[acc@Acceleration,AccelerationCB]

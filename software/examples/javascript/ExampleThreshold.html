@@ -43,17 +43,17 @@
                     function(connectReason) {
                         // Set threshold callbacks with a debounce time of 10 seconds (10000ms)
                         acc.setDebouncePeriod(10000);
-                        // Configure threshold for acceleration values X, Y or Z greather than 2G
-                        acc.setAccelerationCallbackThreshold('>', 2000, 0, 2000, 0, 2000, 0);
+                        // Configure threshold for acceleration values X, Y or Z "greather than 2g" (unit is g/1000)
+                        acc.setAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
                     }
                 );
                 // Register threshold reached callback
                 acc.on(Tinkerforge.BrickletAccelerometer.CALLBACK_ACCELERATION_REACHED,
                     // Callback for acceleration threshold reached
                     function(x, y, z) {
-                        textArea.value += 'Acceleration(X): '+x/1000.0+'G\n';
-                        textArea.value += 'Acceleration(Y): '+y/1000.0+'G\n';
-                        textArea.value += 'Acceleration(Z): '+z/1000.0+'G\n';
+                        textArea.value += 'Acceleration(X): '+x/1000.0+' g\n';
+                        textArea.value += 'Acceleration(Y): '+y/1000.0+' g\n';
+                        textArea.value += 'Acceleration(Z): '+z/1000.0+' g\n';
                         textArea.value += '\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }

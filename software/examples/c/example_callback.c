@@ -7,13 +7,13 @@
 #define PORT 4223
 #define UID "sad" // Change to your UID
 
-// Callback for acceleration
+// Callback for acceleration (parameters have unit g/1000)
 void cb_acceleration(int16_t x, int16_t y, int16_t z, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Acceleration(X): %fG\n", x/1000.0);
-	printf("Acceleration(Y): %fG\n", y/1000.0);
-	printf("Acceleration(Z): %fG\n", z/1000.0);
+	printf("Acceleration(X): %f g\n", x/1000.0);
+	printf("Acceleration(Y): %f g\n", y/1000.0);
+	printf("Acceleration(Z): %f g\n", z/1000.0);
 	printf("\n");
 }
 

@@ -19,18 +19,18 @@ public class ExampleThreshold {
 		acc.setDebouncePeriod(10000);
 
 		// Add and implement acceleration reached listener
-		// Configure threshold for acceleration values X, Y or Z greater than 2G
+		// Configure threshold for acceleration values X, Y or Z greater than 2g (unit is g/1000)
 		acc.setAccelerationCallbackThreshold('>',
-		                                     (short)2000, (short)0,
-		                                     (short)2000, (short)0,
-		                                     (short)2000, (short)0);
+		                                     (short)(2*1000), (short)0,
+		                                     (short)(2*1000), (short)0,
+		                                     (short)(2*1000), (short)0);
 
 		acc.addAccelerationReachedListener(
 		new BrickletAccelerometer.AccelerationReachedListener() {
 			public void accelerationReached(short x, short y, short z) {
-				System.out.println("Acceleration(X): " + x/1000.0 + "G");
-				System.out.println("Acceleration(Y): " + y/1000.0 + "G");
-				System.out.println("Acceleration(Z): " + z/1000.0 + "G");
+				System.out.println("Acceleration(X): " + x/1000.0 + " g");
+				System.out.println("Acceleration(Y): " + y/1000.0 + " g");
+				System.out.println("Acceleration(Z): " + z/1000.0 + " g");
 				System.out.println("");
 			}
 		});

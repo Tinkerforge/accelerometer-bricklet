@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-  
+# -*- coding: utf-8 -*-
 
 HOST = "localhost"
 PORT = 4223
@@ -8,10 +8,12 @@ UID = "abc" # Change to your UID
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_accelerometer import Accelerometer
 
-# Callback function for acceleration callback
-# Turn LED on if acceleration goes above 3G
-def cb_reached(acc, x, y, z):
-    acc.led_on()
+# Callback for acceleration threshold reached
+def cb_reached(x, y, z):
+    print('Acceleration(X): ' + str(x/1000.0) + ' g')
+    print('Acceleration(Y): ' + str(y/1000.0) + ' g')
+    print('Acceleration(Z): ' + str(z/1000.0) + ' g')
+    print('')
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
@@ -24,12 +26,10 @@ if __name__ == "__main__":
     acc.set_debounce_period(1000)
 
     # Register threshold reached callback to function cb_reached
-    func = lambda x, y, z: cb_reached(acc, x, y, z)
-    acc.register_callback(acc.CALLBACK_ACCELERATION_REACHED, func)
+    acc.register_callback(acc.CALLBACK_ACCELERATION_REACHED, cb_reached)
 
-    # Configure threshold for acceleration values,
-    # Trigger callback if one of the accelerations goes above 3G
-    acc.set_acceleration_callback_threshold('>', 3000, 0, 3000, 0, 3000, 0)
-    
+    # Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
+    acc.set_acceleration_callback_threshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0)
+
     raw_input('Press key to exit\n') # Use input() in Python 3
     ipcon.disconnect()

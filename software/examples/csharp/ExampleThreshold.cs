@@ -9,9 +9,9 @@ class Example
 	// Callback for acceleration threshold reached
 	static void ReachedCB(BrickletAccelerometer sender, short x, short y, short z)
 	{
-		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + "G");
-		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + "G");
-		System.Console.WriteLine("Acceleration(Z): " + z/1000.0 + "G");
+		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + " g");
+		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + " g");
+		System.Console.WriteLine("Acceleration(Z): " + z/1000.0 + " g");
 		System.Console.WriteLine("");
 	}
 
@@ -29,8 +29,8 @@ class Example
 		// Register threshold reached callback to function ReachedCB
 		acc.AccelerationReached += ReachedCB;
 
-		// Configure threshold for acceleration for X, Y or Z greater than 2000
-		acc.SetAccelerationCallbackThreshold('>', 2000, 0, 2000, 0, 2000, 0);
+		// Configure threshold for acceleration for X, Y or Z "greater than 2g" (unit is g/1000)
+		acc.SetAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
 		System.Console.WriteLine("Press enter to exit");
 		System.Console.ReadLine();

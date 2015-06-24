@@ -36,11 +36,11 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Get current acceleration }
+  { Get current acceleration (unit is g/1000) }
   acc.GetAcceleration(x, y, z);
-  WriteLn(Format('Accelerometer(X): %fG', [x/1000.0]));
-  WriteLn(Format('Accelerometer(Y): %fG', [y/1000.0]));
-  WriteLn(Format('Accelerometer(Z): %fG', [z/1000.0]));
+  WriteLn(Format('Accelerometer(X): %f g', [x/1000.0]));
+  WriteLn(Format('Accelerometer(Y): %f g', [y/1000.0]));
+  WriteLn(Format('Accelerometer(Z): %f g', [z/1000.0]));
 
   WriteLn('Press key to exit');
   ReadLn;

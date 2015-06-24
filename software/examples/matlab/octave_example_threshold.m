@@ -14,8 +14,8 @@ function octave_example_threshold()
     % Set threshold callbacks with a debounce time of 10 seconds (10000ms)
     acc.setDebouncePeriod(10000);
 
-    % Configure threshold for acceleration values X, Y or Z greater than 2G
-    acc.setAccelerationCallbackThreshold(acc.THRESHOLD_OPTION_GREATER, 2000, 0, 2000, 0, 2000, 0);
+    % Configure threshold for acceleration values X, Y or Z "greater than 2G" (unit is g/1000)
+    acc.setAccelerationCallbackThreshold(acc.THRESHOLD_OPTION_GREATER, 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
     % Register threshold reached callback to function cb_reached
     acc.addAccelerationReachedCallback(@cb_reached);
@@ -26,7 +26,7 @@ end
 
 % Callback function for acceleration callback
 function cb_reached(e)
-    fprintf("Acceleration(X): %gG\n", e.x.intValue()/1000.0);
-    fprintf("Acceleration(Y): %gG\n", e.y.intValue()/1000.0);
-    fprintf("Acceleration(Z): %gG\n", e.z.intValue()/1000.0);
+    fprintf("Acceleration(X): %g g\n", e.x/1000.0);
+    fprintf("Acceleration(Y): %g g\n", e.y/1000.0);
+    fprintf("Acceleration(Z): %g g\n", e.z/1000.0);
 end

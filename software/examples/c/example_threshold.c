@@ -11,9 +11,9 @@
 void cb_reached(int16_t x, int16_t y, int16_t z, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Acceleration(X): %fG\n", x/1000.0);
-	printf("Acceleration(Y): %fG\n", y/1000.0);
-	printf("Acceleration(Z): %fG\n", z/1000.0);
+	printf("Acceleration(X): %f g\n", x/1000.0);
+	printf("Acceleration(Y): %f g\n", y/1000.0);
+	printf("Acceleration(Z): %f g\n", z/1000.0);
 	printf("\n");
 }
 
@@ -42,8 +42,8 @@ int main() {
 	                                (void *)cb_reached,
 	                                NULL);
 
-	// Configure threshold for acceleration values X, Y or Z greater than 2G
-	accelerometer_set_acceleration_callback_threshold(&acc, '>', 2000, 0, 2000, 0, 2000, 0);
+	// Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
+	accelerometer_set_acceleration_callback_threshold(&acc, '>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
 	printf("Press key to exit\n");
 	getchar();

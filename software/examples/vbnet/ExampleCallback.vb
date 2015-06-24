@@ -5,12 +5,12 @@ Module ExampleCallback
     Const PORT As Integer = 4223
     Const UID As String = "sad" ' Change to your UID
 
-    ' Callback function for acceleration callback
+    ' Callback function for acceleration callback (parameters have unit g/1000)
     Sub AccelerationCB(ByVal sender As BrickletAccelerometer, ByVal x As Short, _
                        ByVal y As Short, ByVal z As Short)
-        System.Console.WriteLine("Acceleration(X): " + (x/1000.0).ToString() + "G")
-        System.Console.WriteLine("Acceleration(Y): " + (y/1000.0).ToString() + "G")
-        System.Console.WriteLine("Acceleration(Z): " + (z/1000.0).ToString() + "G")
+        System.Console.WriteLine("Acceleration(X): " + (x/1000.0).ToString() + " g")
+        System.Console.WriteLine("Acceleration(Y): " + (y/1000.0).ToString() + " g")
+        System.Console.WriteLine("Acceleration(Z): " + (z/1000.0).ToString() + " g")
         System.Console.WriteLine("")
     End Sub
 
