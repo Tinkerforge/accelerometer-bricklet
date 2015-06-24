@@ -28,7 +28,7 @@ Module ExampleThreshold
         AddHandler acc.AccelerationReached, AddressOf ReachedCB
 
         ' Configure threshold for acceleration values X, Y, Z "greater than 2g" (unit is g/1000)
-        acc.SetAccelerationCallbackThreshold(">", 2*1000, 0, 2*1000, 0, 2*1000, 0)
+        acc.SetAccelerationCallbackThreshold(">"C, 2*1000, 0, 2*1000, 0, 2*1000, 0)
 
         System.Console.WriteLine("Press key to exit")
         System.Console.ReadLine()
