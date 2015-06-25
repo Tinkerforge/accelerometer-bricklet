@@ -25,7 +25,16 @@ end
 
 % Callback function for acceleration callback (parameters have unit g/1000)
 function cb_acceleration(e)
-    fprintf("Acceleration(X): %g g\n", e.x/1000.0);
-    fprintf("Acceleration(Y): %g g\n", e.y/1000.0);
-    fprintf("Acceleration(Z): %g g\n", e.z/1000.0);
+    fprintf("Acceleration(X): %g g\n", short2int(e.x)/1000.0);
+    fprintf("Acceleration(Y): %g g\n", short2int(e.y)/1000.0);
+    fprintf("Acceleration(Z): %g g\n", short2int(e.z)/1000.0);
+    fprintf("\n");
+end
+
+function int = short2int(short)
+    if compare_versions(version(), "3.8", "<=")
+        int = short.intValue();
+    else
+        int = short;
+    end
 end

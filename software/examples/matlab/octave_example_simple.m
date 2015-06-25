@@ -13,10 +13,19 @@ function octave_example_simple()
 
     % Get current acceleration (unit is g/1000)
     acceleration = acc.getAcceleration();
-    fprintf("Acceleration(X): %g g\n", acceleration.x/1000.0);
-    fprintf("Acceleration(Y): %g g\n", acceleration.y/1000.0);
-    fprintf("Acceleration(Z): %g g\n", acceleration.z/1000.0);
+
+    fprintf("Acceleration(X): %g g\n", short2int(acceleration.x)/1000.0);
+    fprintf("Acceleration(Y): %g g\n", short2int(acceleration.y)/1000.0);
+    fprintf("Acceleration(Z): %g g\n", short2int(acceleration.z)/1000.0);
 
     input("Press any key to exit...\n", "s");
     ipcon.disconnect();
+end
+
+function int = short2int(short)
+    if compare_versions(version(), "3.8", "<=")
+        int = short.intValue();
+    else
+        int = short;
+    end
 end
