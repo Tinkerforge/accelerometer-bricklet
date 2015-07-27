@@ -4,7 +4,7 @@ class Example
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
-	private static string UID = "sad"; // Change to your UID
+	private static string UID = "XYZ"; // Change to your UID
 
 	// Callback function for acceleration callback (parameters have unit g/1000)
 	static void AccelerationCB(BrickletAccelerometer sender, short x, short y, short z)
@@ -18,7 +18,7 @@ class Example
 	static void Main()
 	{
 		IPConnection ipcon = new IPConnection(); // Create IP connection
-		BrickletAccelerometer acc = new BrickletAccelerometer(UID, ipcon); // Create device object
+		BrickletAccelerometer a = new BrickletAccelerometer(UID, ipcon); // Create device object
 
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
@@ -26,10 +26,10 @@ class Example
 		// Set Period for acceleration callback to 1s (1000ms)
 		// Note: The color callback is only called every second if the
 		//       acceleration has changed since the last call!
-		acc.SetAccelerationCallbackPeriod(1000);
+		a.SetAccelerationCallbackPeriod(1000);
 
 		// Register color callback to function AccelerationCB
-		acc.Acceleration += AccelerationCB;
+		a.Acceleration += AccelerationCB;
 
 		System.Console.WriteLine("Press enter to exit");
 		System.Console.ReadLine();

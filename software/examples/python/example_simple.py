@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-  
+# -*- coding: utf-8 -*-
 
 HOST = "localhost"
 PORT = 4223
-UID = "abc" # Change to your UID
+UID = "XYZ" # Change to your UID
 
 import time
 
@@ -12,13 +12,13 @@ from tinkerforge.bricklet_accelerometer import Accelerometer
 
 if __name__ == "__main__":
     ipcon = IPConnection() # Create IP connection
-    acc = Accelerometer(UID, ipcon) # Create device object
+    a = Accelerometer(UID, ipcon) # Create device object
 
     ipcon.connect(HOST, PORT) # Connect to brickd
     # Don't use device before ipcon is connected
 
     # Get current acceleration (unit is g/1000)
-    acceleration = acc.get_acceleration()
+    acceleration = a.get_acceleration()
 
     print('Acceleration(X): ' + str(acceleration.x/1000.0) + ' g')
     print('Acceleration(Y): ' + str(acceleration.y/1000.0) + ' g')

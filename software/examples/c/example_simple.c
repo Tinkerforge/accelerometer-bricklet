@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "sad" // Change to your UID
+#define UID "XYZ" // Change to your UID
 
 int main() {
 	// Create IP connection
@@ -13,8 +13,8 @@ int main() {
 	ipcon_create(&ipcon);
 
 	// Create device object
-	Accelerometer acc;
-	accelerometer_create(&acc, UID, &ipcon);
+	Accelerometer a;
+	accelerometer_create(&a, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -25,7 +25,7 @@ int main() {
 
 	// Get current acceleration (unit is g/1000)
 	int16_t x; int16_t y; int16_t z;
-	if(accelerometer_get_acceleration(&acc, &x, &y, &z) < 0) {
+	if(accelerometer_get_acceleration(&a, &x, &y, &z) < 0) {
 		fprintf(stderr, "Could not get value, probably timeout\n");
 		exit(1);
 	}

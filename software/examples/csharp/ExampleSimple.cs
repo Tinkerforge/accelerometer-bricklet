@@ -4,19 +4,19 @@ class Example
 {
 	private static string HOST = "localhost";
 	private static int PORT = 4223;
-	private static string UID = "sad"; // Change to your UID
+	private static string UID = "XYZ"; // Change to your UID
 
 	static void Main()
 	{
-		IPConnection ipcon = new Tinkerforge.IPConnection(); // Create IP connection
-		BrickletAccelerometer acc = new Tinkerforge.BrickletAccelerometer(UID, ipcon); // Create device object
+		IPConnection ipcon = new IPConnection(); // Create IP connection
+		BrickletAccelerometer a = new BrickletAccelerometer(UID, ipcon); // Create device object
 
 		ipcon.Connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
 		// Get current acceleration (unit is g/1000)
 		short x; short y; short z;
-		acc.GetAcceleration(out x, out y, out z);
+		a.GetAcceleration(out x, out y, out z);
 
 		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + " g");
 		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + " g");

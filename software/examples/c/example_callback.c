@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "sad" // Change to your UID
+#define UID "XYZ" // Change to your UID
 
 // Callback for acceleration (parameters have unit g/1000)
 void cb_acceleration(int16_t x, int16_t y, int16_t z, void *user_data) {
@@ -23,8 +23,8 @@ int main() {
 	ipcon_create(&ipcon);
 
 	// Create device object
-	Accelerometer acc;
-	accelerometer_create(&acc, UID, &ipcon);
+	Accelerometer a;
+	accelerometer_create(&a, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -36,10 +36,10 @@ int main() {
 	// Set Period for acceleration callback to 1s (1000ms)
 	// Note: The callback is only called every second if the
 	//       acceleration has changed since the last call!
-	accelerometer_set_acceleration_callback_period(&acc, 1000);
+	accelerometer_set_acceleration_callback_period(&a, 1000);
 
 	// Register color callback to function cb_acceleration
-	accelerometer_register_callback(&acc,
+	accelerometer_register_callback(&a,
 	                                ACCELEROMETER_CALLBACK_ACCELERATION,
 	                                (void *)cb_acceleration,
 	                                NULL);

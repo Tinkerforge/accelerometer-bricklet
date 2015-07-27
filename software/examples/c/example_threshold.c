@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "sad" // Change to your UID
+#define UID "XYZ" // Change to your UID
 
 // Callback for acceleration threshold reached
 void cb_reached(int16_t x, int16_t y, int16_t z, void *user_data) {
@@ -23,8 +23,8 @@ int main() {
 	ipcon_create(&ipcon);
 
 	// Create device object
-	Accelerometer acc;
-	accelerometer_create(&acc, UID, &ipcon);
+	Accelerometer a;
+	accelerometer_create(&a, UID, &ipcon);
 
 	// Connect to brickd
 	if(ipcon_connect(&ipcon, HOST, PORT) < 0) {
@@ -34,16 +34,16 @@ int main() {
 	// Don't use device before ipcon is connected
 
 	// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
-	accelerometer_set_debounce_period(&acc, 10000);
+	accelerometer_set_debounce_period(&a, 10000);
 
 	// Register threshold reached callback to function cb_reached
-	accelerometer_register_callback(&acc,
+	accelerometer_register_callback(&a,
 	                                ACCELEROMETER_CALLBACK_ACCELERATION_REACHED,
 	                                (void *)cb_reached,
 	                                NULL);
 
 	// Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
-	accelerometer_set_acceleration_callback_threshold(&acc, '>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
+	accelerometer_set_acceleration_callback_threshold(&a, '>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
 	printf("Press key to exit\n");
 	getchar();
