@@ -5,8 +5,6 @@ HOST = "localhost"
 PORT = 4223
 UID = "XYZ" # Change to your UID
 
-import time
-
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_accelerometer import Accelerometer
 
