@@ -10,7 +10,7 @@ type
   TExample = class
   private
     ipcon: TIPConnection;
-    acc: TBrickletAccelerometer;
+    a: TBrickletAccelerometer;
   public
     procedure Execute;
   end;
@@ -18,7 +18,7 @@ type
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'sad'; { Change to your UID }
+  UID = 'XYZ'; { Change to your UID }
 
 var
   e: TExample;
@@ -30,14 +30,14 @@ begin
   ipcon := TIPConnection.Create;
 
   { Create device object }
-  acc := TBrickletAccelerometer.Create(UID, ipcon);
+  a := TBrickletAccelerometer.Create(UID, ipcon);
 
   { Connect to brickd }
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
   { Get current acceleration (unit is g/1000) }
-  acc.GetAcceleration(x, y, z);
+  a.GetAcceleration(x, y, z);
   WriteLn(Format('Accelerometer(X): %f g', [x/1000.0]));
   WriteLn(Format('Accelerometer(Y): %f g', [y/1000.0]));
   WriteLn(Format('Accelerometer(Z): %f g', [z/1000.0]));

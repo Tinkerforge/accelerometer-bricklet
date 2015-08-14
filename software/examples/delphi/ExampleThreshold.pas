@@ -1,4 +1,4 @@
-program ExampleSimple;
+program ExampleThreshold;
 
 {$ifdef MSWINDOWS}{$apptype CONSOLE}{$endif}
 {$ifdef FPC}{$mode OBJFPC}{$H+}{$endif}
@@ -10,7 +10,7 @@ type
   TExample = class
   private
     ipcon: TIPConnection;
-    acc: TBrickletAccelerometer;
+    a: TBrickletAccelerometer;
   public
     procedure ReachedCB(sender: TBrickletAccelerometer; const x: smallint;
                         const y: smallint; const z: smallint);
@@ -20,7 +20,7 @@ type
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'sad'; { Change to your UID }
+  UID = 'XYZ'; { Change to your UID }
 
 var
   e: TExample;
@@ -41,20 +41,20 @@ begin
   ipcon := TIPConnection.Create;
 
   { Create device object }
-  acc := TBrickletAccelerometer.Create(UID, ipcon);
+  a := TBrickletAccelerometer.Create(UID, ipcon);
 
   { Connect to brickd }
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
   { Get threshold callbacks with a debounce time of 10 seconds (10000ms) }
-  acc.SetDebouncePeriod(10000);
+  a.SetDebouncePeriod(10000);
 
   { Register threshold reached callback to procedure ReachedCB }
-  acc.OnAccelerationReached := {$ifdef FPC}@{$endif}ReachedCB;
+  a.OnAccelerationReached := {$ifdef FPC}@{$endif}ReachedCB;
 
   { Configure threshold for acceleration values X, Y or Z "greather than 2g" (unit is g/1000) }
-  acc.SetAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
+  a.SetAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
   WriteLn('Press key to exit');
   ReadLn;

@@ -1,4 +1,4 @@
-program ExampleSimple;
+program ExampleCallback;
 
 {$ifdef MSWINDOWS}{$apptype CONSOLE}{$endif}
 {$ifdef FPC}{$mode OBJFPC}{$H+}{$endif}
@@ -10,7 +10,7 @@ type
   TExample = class
   private
     ipcon: TIPConnection;
-    acc: TBrickletAccelerometer;
+    a: TBrickletAccelerometer;
   public
     procedure AccelerationCB(sender: TBrickletAccelerometer; const x: smallint;
                              const y: smallint; const z: smallint);
@@ -20,7 +20,7 @@ type
 const
   HOST = 'localhost';
   PORT = 4223;
-  UID = 'sad'; { Change to your UID }
+  UID = 'XYZ'; { Change to your UID }
 
 var
   e: TExample;
@@ -41,7 +41,7 @@ begin
   ipcon := TIPConnection.Create;
 
   { Create device object }
-  acc := TBrickletAccelerometer.Create(UID, ipcon);
+  a := TBrickletAccelerometer.Create(UID, ipcon);
 
   { Connect to brickd }
   ipcon.Connect(HOST, PORT);
@@ -50,10 +50,10 @@ begin
   { Set Period for acceleration callback to 1s (1000ms)
     Note: The callback is only called every second if the
           acceleration has changed since the last call! }
-  acc.SetAccelerationCallbackPeriod(1000);
+  a.SetAccelerationCallbackPeriod(1000);
 
   { Register acceleration callback to procedure AccelerationCB }
-  acc.OnAcceleration := {$ifdef FPC}@{$endif}AccelerationCB;
+  a.OnAcceleration := {$ifdef FPC}@{$endif}AccelerationCB;
 
   WriteLn('Press key to exit');
   ReadLn;
