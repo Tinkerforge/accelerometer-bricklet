@@ -2,4 +2,4 @@
 - Initial version
 
 2.0.1:
-- Fix value range for threshold configuration
+- Fix value comparison for threshold callback
