@@ -29,6 +29,6 @@ if __name__ == "__main__":
 
     # Register acceleration callback to function cb_acceleration
     a.register_callback(a.CALLBACK_ACCELERATION, cb_acceleration)
-    
+
     raw_input('Press key to exit\n') # Use input() in Python 3
     ipcon.disconnect()
