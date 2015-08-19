@@ -5,10 +5,10 @@ use Tinkerforge::BrickletAccelerometer;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'sad'; # Change to your UID
+use constant UID => 'XYZ'; # Change to your UID
 
 my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
-my $acc = Tinkerforge::BrickletAccelerometer->new(&UID, $ipcon); # Create device object
+my $a = Tinkerforge::BrickletAccelerometer->new(&UID, $ipcon); # Create device object
 
 # Callback function for acceleration callback
 sub cb_reached
@@ -25,13 +25,13 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Don't use device before ipcon is connected
 
 # Get threshold callbacks with a debounce time of 10 seconds (10000ms)
-$acc->set_debounce_period(10000);
+$a->set_debounce_period(10000);
 
 # Register threshold reached callback to function cb_reached
-$acc->register_callback($acc->CALLBACK_ACCELERATION_REACHED, 'cb_reached');
+$a->register_callback($a->CALLBACK_ACCELERATION_REACHED, 'cb_reached');
 
 # Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
-$acc->set_acceleration_callback_threshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
+$a->set_acceleration_callback_threshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
 print "Press any key to exit...\n";
 <STDIN>;

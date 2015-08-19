@@ -5,10 +5,10 @@ use Tinkerforge::BrickletAccelerometer;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'sad'; # Change to your UID
+use constant UID => 'XYZ'; # Change to your UID
 
 my $ipcon = Tinkerforge::IPConnection->new(); # Create IP connection
-my $acc = Tinkerforge::BrickletAccelerometer->new(&UID, $ipcon); # Create device object
+my $a = Tinkerforge::BrickletAccelerometer->new(&UID, $ipcon); # Create device object
 
 # Callback function for acceleration callback (parameters have unit g/1000)
 sub cb_acceleration
@@ -27,10 +27,10 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Set Period for acceleration callback to 1s (1000ms)
 # Note: The callback is only called every second if the 
 #       acceleration has changed since the last call!
-$acc->set_acceleration_callback_period(1000);
+$a->set_acceleration_callback_period(1000);
 
 # Register acceleration callback to function cb_acceleration
-$acc->register_callback($acc->CALLBACK_ACCELERATION, 'cb_acceleration');
+$a->register_callback($a->CALLBACK_ACCELERATION, 'cb_acceleration');
 
 print "Press any key to exit...\n";
 <STDIN>;
