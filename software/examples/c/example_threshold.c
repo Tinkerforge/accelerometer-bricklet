@@ -7,13 +7,13 @@
 #define PORT 4223
 #define UID "XYZ" // Change to your UID
 
-// Callback for acceleration threshold reached
-void cb_reached(int16_t x, int16_t y, int16_t z, void *user_data) {
+// Callback function for acceleration reached callback (parameters have unit g/1000)
+void cb_acceleration_reached(int16_t x, int16_t y, int16_t z, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Acceleration(X): %f g\n", x/1000.0);
-	printf("Acceleration(Y): %f g\n", y/1000.0);
-	printf("Acceleration(Z): %f g\n", z/1000.0);
+	printf("Acceleration[X]: %f g\n", x/1000.0);
+	printf("Acceleration[Y]: %f g\n", y/1000.0);
+	printf("Acceleration[Z]: %f g\n", z/1000.0);
 	printf("\n");
 }
 
@@ -36,13 +36,13 @@ int main(void) {
 	// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 	accelerometer_set_debounce_period(&a, 10000);
 
-	// Register threshold reached callback to function cb_reached
+	// Register acceleration reached callback to function cb_acceleration_reached
 	accelerometer_register_callback(&a,
 	                                ACCELEROMETER_CALLBACK_ACCELERATION_REACHED,
-	                                (void *)cb_reached,
+	                                (void *)cb_acceleration_reached,
 	                                NULL);
 
-	// Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
+	// Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
 	accelerometer_set_acceleration_callback_threshold(&a, '>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
 	printf("Press key to exit\n");

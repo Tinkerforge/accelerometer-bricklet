@@ -7,13 +7,13 @@
 #define PORT 4223
 #define UID "XYZ" // Change to your UID
 
-// Callback for acceleration (parameters have unit g/1000)
+// Callback function for acceleration callback (parameters have unit g/1000)
 void cb_acceleration(int16_t x, int16_t y, int16_t z, void *user_data) {
 	(void)user_data; // avoid unused parameter warning
 
-	printf("Acceleration(X): %f g\n", x/1000.0);
-	printf("Acceleration(Y): %f g\n", y/1000.0);
-	printf("Acceleration(Z): %f g\n", z/1000.0);
+	printf("Acceleration[X]: %f g\n", x/1000.0);
+	printf("Acceleration[Y]: %f g\n", y/1000.0);
+	printf("Acceleration[Z]: %f g\n", z/1000.0);
 	printf("\n");
 }
 
@@ -33,16 +33,16 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Set Period for acceleration callback to 1s (1000ms)
-	// Note: The callback is only called every second if the
-	//       acceleration has changed since the last call!
-	accelerometer_set_acceleration_callback_period(&a, 1000);
-
-	// Register color callback to function cb_acceleration
+	// Register acceleration callback to function cb_acceleration
 	accelerometer_register_callback(&a,
 	                                ACCELEROMETER_CALLBACK_ACCELERATION,
 	                                (void *)cb_acceleration,
 	                                NULL);
+
+	// Set period for acceleration callback to 1s (1000ms)
+	// Note: The acceleration callback is only called every second
+	//       if the acceleration has changed since the last call!
+	accelerometer_set_acceleration_callback_period(&a, 1000);
 
 	printf("Press key to exit\n");
 	getchar();

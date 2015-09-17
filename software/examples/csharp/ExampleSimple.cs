@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -15,15 +16,15 @@ class Example
 		// Don't use device before ipcon is connected
 
 		// Get current acceleration (unit is g/1000)
-		short x; short y; short z;
+		short x, y, z;
 		a.GetAcceleration(out x, out y, out z);
 
-		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + " g");
-		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + " g");
-		System.Console.WriteLine("Acceleration(Z): " + z/1000.0 + " g");
+		Console.WriteLine("Acceleration[X]: " + x/1000.0 + " g");
+		Console.WriteLine("Acceleration[Y]: " + y/1000.0 + " g");
+		Console.WriteLine("Acceleration[Z]: " + z/1000.0 + " g");
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

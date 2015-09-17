@@ -12,8 +12,8 @@ type
     ipcon: TIPConnection;
     a: TBrickletAccelerometer;
   public
-    procedure AccelerationCB(sender: TBrickletAccelerometer; const x: smallint;
-                             const y: smallint; const z: smallint);
+    procedure AccelerationCB(sender: TBrickletAccelerometer;
+                             const x: smallint; const y: smallint; const z: smallint);
     procedure Execute;
   end;
 
@@ -25,14 +25,14 @@ const
 var
   e: TExample;
 
-{ Callback function for acceleration callback (parameters have unit g/1000) }
-procedure TExample.AccelerationCB(sender: TBrickletAccelerometer; const x: smallint;
-                                  const y: smallint; const z: smallint);
+{ Callback procedure for acceleration callback (parameters have unit g/1000) }
+procedure TExample.AccelerationCB(sender: TBrickletAccelerometer;
+                                  const x: smallint; const y: smallint; const z: smallint);
 begin
-    WriteLn(Format('Acceleration(X): %f g', [x/1000.0]));
-    WriteLn(Format('Acceleration(Y): %f g', [y/1000.0]));
-    WriteLn(Format('Acceleration(Z): %f g', [z/1000.0]));
-    WriteLn('');
+  WriteLn(Format('Acceleration[X]: %f g', [x/1000.0]));
+  WriteLn(Format('Acceleration[Y]: %f g', [y/1000.0]));
+  WriteLn(Format('Acceleration[Z]: %f g', [z/1000.0]));
+  WriteLn('');
 end;
 
 procedure TExample.Execute;
@@ -47,13 +47,13 @@ begin
   ipcon.Connect(HOST, PORT);
   { Don't use device before ipcon is connected }
 
-  { Set Period for acceleration callback to 1s (1000ms)
-    Note: The callback is only called every second if the
-          acceleration has changed since the last call! }
-  a.SetAccelerationCallbackPeriod(1000);
-
   { Register acceleration callback to procedure AccelerationCB }
   a.OnAcceleration := {$ifdef FPC}@{$endif}AccelerationCB;
+
+  { Set period for acceleration callback to 1s (1000ms)
+    Note: The acceleration callback is only called every second
+          if the acceleration has changed since the last call! }
+  a.SetAccelerationCallbackPeriod(1000);
 
   WriteLn('Press key to exit');
   ReadLn;

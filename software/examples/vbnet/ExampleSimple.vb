@@ -1,3 +1,4 @@
+Imports System
 Imports Tinkerforge
 
 Module ExampleSimple
@@ -19,12 +20,12 @@ Module ExampleSimple
 
         a.GetAcceleration(x, y, z)
 
-        System.Console.WriteLine("Acceleration(X): " + (x/1000.0).ToString() + " g")
-        System.Console.WriteLine("Acceleration(Y): " + (y/1000.0).ToString() + " g")
-        System.Console.WriteLine("Acceleration(Z): " + (z/1000.0).ToString() + " g")
+        Console.WriteLine("Acceleration[X]: " + (x/1000.0).ToString() + " g")
+        Console.WriteLine("Acceleration[Y]: " + (y/1000.0).ToString() + " g")
+        Console.WriteLine("Acceleration[Z]: " + (z/1000.0).ToString() + " g")
 
-        System.Console.WriteLine("Press key to exit")
-        System.Console.ReadLine()
+        Console.WriteLine("Press key to exit")
+        Console.ReadLine()
         ipcon.Disconnect()
     End Sub
 End Module

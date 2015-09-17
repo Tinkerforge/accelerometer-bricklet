@@ -16,10 +16,10 @@ $ipcon->connect(&HOST, &PORT); # Connect to brickd
 # Get current acceleration (unit is g/1000)
 my ($x, $y, $z) = $a->get_acceleration();
 
-print "Acceleration(X): " . $x/1000.0 . " g\n";
-print "Acceleration(Y): " . $y/1000.0 . " g\n";
-print "Acceleration(Z): " . $z/1000.0 . " g\n";
+print "Acceleration[X]: " . $x/1000.0 . " g\n";
+print "Acceleration[Y]: " . $y/1000.0 . " g\n";
+print "Acceleration[Z]: " . $z/1000.0 . " g\n";
 
-print "Press any key to exit...\n";
+print "Press key to exit\n";
 <STDIN>;
 $ipcon->disconnect();

@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[      4997,        144]
-NotebookOptionsPosition[      4723,        130]
-NotebookOutlinePosition[      5062,        145]
-CellTagsIndexPosition[      5019,        142]
+NotebookDataLength[      4966,        143]
+NotebookOptionsPosition[      4692,        129]
+NotebookOutlinePosition[      5031,        144]
+CellTagsIndexPosition[      4988,        141]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -31,17 +31,17 @@ Cell[BoxData[{
  RowBox[{"host", "=", "\"\<localhost\>\""}], "\n", 
  RowBox[{"port", "=", "4223"}], "\n", 
  RowBox[{
-  RowBox[{"uid", "=", "\"\<sad\>\""}], 
-  RowBox[{"(*", " ", 
-   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], " ", "*)"}], "\n", 
+  RowBox[{"uid", "=", "\"\<XYZ\>\""}], 
+  RowBox[{"(*", 
+   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], "*)"}], "\n", 
   "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
+  RowBox[{"(*", 
    RowBox[{
    "Create", " ", "IPConnection", " ", "and", " ", "device", " ", "object"}], 
-   " ", "*)"}]}], "\[IndentingNewLine]", 
+   "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{"ipcon", "=", 
   RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
- RowBox[{"acc", "=", 
+ RowBox[{"a", "=", 
   RowBox[{"NETNew", "[", 
    RowBox[{
    "\"\<Tinkerforge.BrickletAccelerometer\>\"", ",", "uid", ",", "ipcon"}], 
@@ -49,37 +49,15 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"ipcon", "@", 
    RowBox[{"Connect", "[", 
-    RowBox[{"host", ",", "port"}], "]"}]}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
-   RowBox[{
-   "Set", " ", "Period", " ", "for", " ", "acceleration", " ", "callback", 
-    " ", "to", " ", "1", "s", " ", 
-    RowBox[{"(", 
-     RowBox[{"1000", "ms"}], ")"}]}], " ", "*)"}], "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
-   RowBox[{"Note", ":", " ", 
-    RowBox[{
-    "The", " ", "acceleration", " ", "callback", " ", "is", " ", "only", " ", 
-     "called", " ", "every", " ", "second", " ", "if", " ", "the"}]}], " ", 
-   "*)"}], "\n", 
-  RowBox[{"(*", "       ", 
-   RowBox[{
-   "acceleration", " ", "has", " ", "changed", " ", "since", " ", "the", " ", 
-    "last", " ", 
-    RowBox[{"call", "!"}]}], " ", "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"acc", "@", 
-   RowBox[{"SetAccelerationCallbackPeriod", "[", "1000", "]"}]}], 
-  "\[IndentingNewLine]", "\n", 
-  RowBox[{"(*", " ", 
+    RowBox[{"host", ",", "port"}], "]"}]}], "\n", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
    RowBox[{
    "Callback", " ", "function", " ", "for", " ", "acceleration", " ", 
     "callback", " ", 
     RowBox[{"(", 
      RowBox[{"parameters", " ", "have", " ", "unit", " ", 
-      RowBox[{"g", "/", "1000"}]}], ")"}]}], " ", 
-   "*)"}]}], "\[IndentingNewLine]", 
+      RowBox[{"g", "/", "1000"}]}], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
+
  RowBox[{
   RowBox[{
    RowBox[{"AccelerationCB", "[", 
@@ -90,46 +68,67 @@ Cell[BoxData[{
      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"Print", "[", 
-       RowBox[{"\"\<Acceleration(X): \>\"", "<>", 
+       RowBox[{"\"\<Acceleration[X]: \>\"", "<>", 
         RowBox[{"ToString", "[", 
          RowBox[{"N", "[", 
           RowBox[{"Quantity", "[", 
-           RowBox[{"x", ",", "\"\<mg\>\""}], "]"}], "]"}], "]"}]}], "]"}], 
-      ";", "\[IndentingNewLine]", 
+           RowBox[{"x", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
+       ";", "\[IndentingNewLine]", 
       RowBox[{"Print", "[", 
-       RowBox[{"\"\<Acceleration(Y): \>\"", "<>", 
+       RowBox[{"\"\<Acceleration[Y]: \>\"", "<>", 
         RowBox[{"ToString", "[", 
          RowBox[{"N", "[", 
           RowBox[{"Quantity", "[", 
-           RowBox[{"y", ",", "\"\<mg\>\""}], "]"}], "]"}], "]"}]}], "]"}], 
-      ";", "\[IndentingNewLine]", 
+           RowBox[{"y", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
+       ";", "\[IndentingNewLine]", 
       RowBox[{"Print", "[", 
-       RowBox[{"\"\<Acceleration(Z): \>\"", "<>", 
+       RowBox[{"\"\<Acceleration[Z]: \>\"", "<>", 
         RowBox[{"ToString", "[", 
          RowBox[{"N", "[", 
           RowBox[{"Quantity", "[", 
-           RowBox[{"z", ",", "\"\<mg\>\""}], "]"}], "]"}], "]"}]}], "]"}]}]}],
-     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]"}], "\n", 
+           RowBox[{"z", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], 
+       "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"AddEventHandler", "[", 
    RowBox[{
-    RowBox[{"acc", "@", "Acceleration"}], ",", "AccelerationCB"}], "]"}], 
-  "\[IndentingNewLine]"}], "\n", 
+    RowBox[{"a", "@", "Acceleration"}], ",", "AccelerationCB"}], "]"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Set", " ", "period", " ", "for", " ", "acceleration", " ", "callback", 
+    " ", "to", " ", "1", "s", " ", 
+    RowBox[{"(", 
+     RowBox[{"1000", "ms"}], ")"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Note", ":", 
+    RowBox[{
+    "The", " ", "acceleration", " ", "callback", " ", "is", " ", "only", " ", 
+     "called", " ", "every", " ", "second"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "if", " ", "the", " ", "acceleration", " ", "has", " ", "changed", " ", 
+    "since", " ", "the", " ", "last", " ", 
+    RowBox[{"call", "!"}]}], "*)"}]}], "\n", 
+ RowBox[{
+  RowBox[{"a", "@", 
+   RowBox[{"SetAccelerationCallbackPeriod", "[", "1000", "]"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], "\n", 
   "\[IndentingNewLine]", 
-  RowBox[{"(*", " ", 
-   RowBox[{"Clean", " ", "up"}], " ", "*)"}]}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{"Clean", " ", "up"}], "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{"ipcon", "@", 
   RowBox[{"Disconnect", "[", "]"}]}], "\n", 
- RowBox[{"ReleaseNETObject", "[", "acc", "]"}], "\n", 
+ RowBox[{"ReleaseNETObject", "[", "a", "]"}], "\n", 
  RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
  CellChangeTimes->{{3.643544050590163*^9, 3.643544103419498*^9}, {
   3.6441444313391314`*^9, 3.64414443271782*^9}, {3.644144731633753*^9, 
-  3.6441447327759323`*^9}}]
+  3.6441447327759323`*^9}, {3.6514681774238663`*^9, 3.6514681824691963`*^9}}]
 },
 WindowSize->{1189, 844},
-WindowMargins->{{Automatic, 227}, {Automatic, 24}},
+WindowMargins->{{Automatic, 226}, {Automatic, 24}},
 FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
 StyleDefinitions->"Default.nb"
 ]
@@ -145,7 +144,7 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[557, 20, 320, 7, 55, "Input"],
-Cell[880, 29, 3839, 99, 671, "Input"]
+Cell[880, 29, 3808, 98, 671, "Input"]
 }
 ]
 *)

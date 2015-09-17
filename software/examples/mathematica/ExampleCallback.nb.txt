@@ -3,31 +3,31 @@ LoadNETAssembly["Tinkerforge",NotebookDirectory[]<>"../../.."]
 
 host="localhost"
 port=4223
-uid="sad"(* Change to your UID *)
+uid="XYZ"(*Change to your UID*)
 
-(* Create IPConnection and device object *)
+(*Create IPConnection and device object*)
 ipcon=NETNew["Tinkerforge.IPConnection"]
-acc=NETNew["Tinkerforge.BrickletAccelerometer",uid,ipcon]
+a=NETNew["Tinkerforge.BrickletAccelerometer",uid,ipcon]
 ipcon@Connect[host,port]
 
-(* Set Period for acceleration callback to 1s (1000ms) *)
-(* Note: The acceleration callback is only called every second if the *)
-(*       acceleration has changed since the last call! *)
-acc@SetAccelerationCallbackPeriod[1000]
-
-(* Callback function for acceleration callback (parameters have unit g/1000) *)
+(*Callback function for acceleration callback (parameters have unit g/1000)*)
 AccelerationCB[sender_,x_,y_,z_]:=
  Module[{},
-  Print["Acceleration(X): "<>ToString[N[Quantity[x,"mg"]]]];
-  Print["Acceleration(Y): "<>ToString[N[Quantity[y,"mg"]]]];
-  Print["Acceleration(Z): "<>ToString[N[Quantity[z,"mg"]]]]
+  Print["Acceleration[X]: "<>ToString[N[Quantity[x,"g/1000"]]]];
+  Print["Acceleration[Y]: "<>ToString[N[Quantity[y,"g/1000"]]]];
+  Print["Acceleration[Z]: "<>ToString[N[Quantity[z,"g/1000"]]]]
  ]
 
-AddEventHandler[acc@Acceleration,AccelerationCB]
+AddEventHandler[a@Acceleration,AccelerationCB]
+
+(*Set period for acceleration callback to 1s (1000ms)*)
+(*Note: The acceleration callback is only called every second*)
+(*if the acceleration has changed since the last call!*)
+a@SetAccelerationCallbackPeriod[1000]
 
 Input["Click OK to exit"]
 
-(* Clean up *)
+(*Clean up*)
 ipcon@Disconnect[]
-ReleaseNETObject[acc]
+ReleaseNETObject[a]
 ReleaseNETObject[ipcon]

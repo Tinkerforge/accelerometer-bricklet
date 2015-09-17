@@ -26,31 +26,30 @@
                 textArea.value = "";
                 var HOST = document.getElementById("host").value;
                 var PORT = parseInt(document.getElementById("port").value);
-                var UID  = document.getElementById("uid").value;
+                var UID = document.getElementById("uid").value;
                 if(ipcon !== undefined) {
                     ipcon.disconnect();
                 }
-                ipcon = new Tinkerforge.IPConnection();// Create IP connection
-                var acc = new Tinkerforge.BrickletAccelerometer(UID, ipcon);// Create device object
+                ipcon = new Tinkerforge.IPConnection(); // Create IP connection
+                var a = new Tinkerforge.BrickletAccelerometer(UID, ipcon); // Create device object
                 ipcon.connect(HOST, PORT,
                     function(error) {
-                        textArea.value += 'Error: '+error+ '\n';
+                        textArea.value += 'Error: ' + error + '\n';
                     }
-                );// Connect to brickd
-
+                ); // Connect to brickd
                 // Don't use device before ipcon is connected
+
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
-                    function(connectReason) {
-                        // Get current ccceleration (unit is g/1000)
-                        acc.getAcceleration(
-                            function(x, y, z) {
-                                textArea.value += 'Acceleration(X): '+x/1000.0+' g\n';
-                                textArea.value += 'Acceleration(Y): '+y/1000.0+' g\n';
-                                textArea.value += 'Acceleration(Z): '+z/1000.0+' g\n';
-                                textArea.scrollTop = textArea.scrollHeight;
+                    function (connectReason) {
+                        // Get current acceleration (unit is g/1000)
+                        a.getAcceleration(
+                            function (x, y, z) {
+                                textArea.value += 'Acceleration[X]: ' + x/1000.0 + ' g\n';
+                                textArea.value += 'Acceleration[Y]: ' + y/1000.0 + ' g\n';
+                                textArea.value += 'Acceleration[Z]: ' + z/1000.0 + ' g\n';
                             },
-                            function(error) {
-                                textArea.value += 'Error: '+error+'\n';
+                            function (error) {
+                                textArea.value += 'Error: ' + error + '\n';
                             }
                         );
                     }
@@ -59,4 +58,3 @@
         </script>
     </body>
 </html>
-

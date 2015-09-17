@@ -1,18 +1,17 @@
 #!/bin/sh
-# connects to localhost:4223 by default, use --host and --port to change it
+# Connects to localhost:4223 by default, use --host and --port to change this
 
-# change to your UID
-uid=sad
+uid=XYZ # Change to your UID
 
-# get threshold callbacks with a debounce time of 10 seconds (10000ms)
+# Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 tinkerforge call accelerometer-bricklet $uid set-debounce-period 10000
 
-# Configure threshold for acceleration values X, Y or Z "greater than 2g" (unit is g/1000)
+# Handle incoming acceleration reached callbacks (parameters have unit g/1000)
+tinkerforge dispatch accelerometer-bricklet $uid acceleration-reached &
+
+# Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
 tinkerforge call accelerometer-bricklet $uid set-acceleration-callback-threshold greater 2000 0 2000 0 2000 0
 
-# handle incoming acceleration-reached callbacks
-tinkerforge dispatch accelerometer-bricklet $uid acceleration-reached\
- --execute "echo 'Acceleration(X): {x} g/1000';
-            echo 'Acceleration(Y): {y} g/1000';
-            echo 'Acceleration(Z): {z} g/1000';
-            echo '';"
+echo "Press key to exit"; read dummy
+
+kill -- -$$ # Stop callback dispatch in background

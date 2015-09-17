@@ -1,3 +1,4 @@
+using System;
 using Tinkerforge;
 
 class Example
@@ -6,13 +7,13 @@ class Example
 	private static int PORT = 4223;
 	private static string UID = "XYZ"; // Change to your UID
 
-	// Callback for acceleration threshold reached
-	static void ReachedCB(BrickletAccelerometer sender, short x, short y, short z)
+	// Callback function for acceleration reached callback (parameters have unit g/1000)
+	static void AccelerationReachedCB(BrickletAccelerometer sender, short x, short y, short z)
 	{
-		System.Console.WriteLine("Acceleration(X): " + x/1000.0 + " g");
-		System.Console.WriteLine("Acceleration(Y): " + y/1000.0 + " g");
-		System.Console.WriteLine("Acceleration(Z): " + z/1000.0 + " g");
-		System.Console.WriteLine("");
+		Console.WriteLine("Acceleration[X]: " + x/1000.0 + " g");
+		Console.WriteLine("Acceleration[Y]: " + y/1000.0 + " g");
+		Console.WriteLine("Acceleration[Z]: " + z/1000.0 + " g");
+		Console.WriteLine("");
 	}
 
 	static void Main()
@@ -26,14 +27,14 @@ class Example
 		// Get threshold callbacks with a debounce time of 10 seconds (10000ms)
 		a.SetDebouncePeriod(10000);
 
-		// Register threshold reached callback to function ReachedCB
-		a.AccelerationReached += ReachedCB;
+		// Register acceleration reached callback to function AccelerationReachedCB
+		a.AccelerationReached += AccelerationReachedCB;
 
-		// Configure threshold for acceleration for X, Y or Z "greater than 2g" (unit is g/1000)
+		// Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
 		a.SetAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
-		System.Console.WriteLine("Press enter to exit");
-		System.Console.ReadLine();
+		Console.WriteLine("Press enter to exit");
+		Console.ReadLine();
 		ipcon.Disconnect();
 	}
 }

@@ -38,9 +38,10 @@ begin
 
   { Get current acceleration (unit is g/1000) }
   a.GetAcceleration(x, y, z);
-  WriteLn(Format('Accelerometer(X): %f g', [x/1000.0]));
-  WriteLn(Format('Accelerometer(Y): %f g', [y/1000.0]));
-  WriteLn(Format('Accelerometer(Z): %f g', [z/1000.0]));
+
+  WriteLn(Format('Acceleration[X]: %f g', [x/1000.0]));
+  WriteLn(Format('Acceleration[Y]: %f g', [y/1000.0]));
+  WriteLn(Format('Acceleration[Z]: %f g', [z/1000.0]));
 
   WriteLn('Press key to exit');
   ReadLn;
