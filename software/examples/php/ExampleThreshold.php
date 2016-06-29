@@ -29,7 +29,8 @@ $ipcon->connect(HOST, PORT); // Connect to brickd
 $a->setDebouncePeriod(10000);
 
 // Register acceleration reached callback to function cb_accelerationReached
-$a->registerCallback(BrickletAccelerometer::CALLBACK_ACCELERATION_REACHED, 'cb_accelerationReached');
+$a->registerCallback(BrickletAccelerometer::CALLBACK_ACCELERATION_REACHED,
+                     'cb_accelerationReached');
 
 // Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
 $a->setAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
