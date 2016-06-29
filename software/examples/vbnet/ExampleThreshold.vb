@@ -7,8 +7,8 @@ Module ExampleThreshold
     Const UID As String = "XYZ" ' Change to your UID
 
     ' Callback subroutine for acceleration reached callback (parameters have unit g/1000)
-    Sub AccelerationReachedCB(ByVal sender As BrickletAccelerometer, _
-                              ByVal x As Short, ByVal y As Short, ByVal z As Short)
+    Sub AccelerationReachedCB(ByVal sender As BrickletAccelerometer, ByVal x As Short, _
+                              ByVal y As Short, ByVal z As Short)
         Console.WriteLine("Acceleration[X]: " + (x/1000.0).ToString() + " g")
         Console.WriteLine("Acceleration[Y]: " + (y/1000.0).ToString() + " g")
         Console.WriteLine("Acceleration[Z]: " + (z/1000.0).ToString() + " g")
