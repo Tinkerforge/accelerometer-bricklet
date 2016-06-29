@@ -29,7 +29,8 @@ public class ExampleThreshold {
 		});
 
 		// Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
-		a.setAccelerationCallbackThreshold('>', (short)(2*1000), (short)0, (short)(2*1000), (short)0, (short)(2*1000), (short)0);
+		a.setAccelerationCallbackThreshold('>', (short)(2*1000), (short)0, (short)(2*1000),
+		                                   (short)0, (short)(2*1000), (short)0);
 
 		System.out.println("Press key to exit"); System.in.read();
 		ipcon.disconnect();
