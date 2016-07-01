@@ -1,7 +1,7 @@
 #!/bin/sh
 # Connects to localhost:4223 by default, use --host and --port to change this
 
-uid=XYZ # Change to your UID
+uid=XYZ # Change XYZ to the UID of your Accelerometer Bricklet
 
 # Handle incoming acceleration callbacks (parameters have unit g/1000)
 tinkerforge dispatch accelerometer-bricklet $uid acceleration &

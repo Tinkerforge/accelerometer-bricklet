@@ -8,7 +8,7 @@ use Tinkerforge\BrickletAccelerometer;
 
 const HOST = 'localhost';
 const PORT = 4223;
-const UID = 'XYZ'; // Change to your UID
+const UID = 'XYZ'; // Change XYZ to the UID of your Accelerometer Bricklet
 
 // Callback function for acceleration reached callback (parameters have unit g/1000)
 function cb_accelerationReached($x, $y, $z)

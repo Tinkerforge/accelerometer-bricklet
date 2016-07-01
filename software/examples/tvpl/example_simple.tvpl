@@ -1,0 +1,168 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <tvpl>
+    <program>
+      <block type="variables_set">
+        <field name="VAR">Acceleration</field>
+        <value name="VALUE">
+          <block type="bricklet_accelerometer_get_acceleration">
+            <value name="_UID">
+              <block type="text">
+                <field name="TEXT">XYZ</field>
+              </block>
+            </value>
+            <value name="_HOST">
+              <block type="text">
+                <field name="TEXT">localhost</field>
+              </block>
+            </value>
+            <value name="_PORT">
+              <block type="math_number">
+                <field name="NUM">4280</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="text_print">
+            <value name="TEXT">
+              <block type="text_join">
+                <mutation items="3"/>
+                <value name="ADD0">
+                  <block type="text">
+                    <field name="TEXT">Acceleration[X]: </field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="math_arithmetic">
+                    <field name="OP">DIVIDE</field>
+                    <value name="A">
+                      <block type="lists_getIndex">
+                        <mutation at="true" statement="false"/>
+                        <field name="MODE">GET</field>
+                        <field name="WHERE">FROM_START</field>
+                        <value name="VALUE">
+                          <block type="variables_get">
+                            <field name="VAR">Acceleration</field>
+                          </block>
+                        </value>
+                        <value name="AT">
+                          <block type="math_number">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="math_number">
+                        <field name="NUM">1000.0</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="text">
+                    <field name="TEXT"> g</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="text_print">
+                <value name="TEXT">
+                  <block type="text_join">
+                    <mutation items="3"/>
+                    <value name="ADD0">
+                      <block type="text">
+                        <field name="TEXT">Acceleration[Y]: </field>
+                      </block>
+                    </value>
+                    <value name="ADD1">
+                      <block type="math_arithmetic">
+                        <field name="OP">DIVIDE</field>
+                        <value name="A">
+                          <block type="lists_getIndex">
+                            <mutation at="true" statement="false"/>
+                            <field name="MODE">GET</field>
+                            <field name="WHERE">FROM_START</field>
+                            <value name="VALUE">
+                              <block type="variables_get">
+                                <field name="VAR">Acceleration</field>
+                              </block>
+                            </value>
+                            <value name="AT">
+                              <block type="math_number">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number">
+                            <field name="NUM">1000.0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <value name="ADD2">
+                      <block type="text">
+                        <field name="TEXT"> g</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="text_print">
+                    <value name="TEXT">
+                      <block type="text_join">
+                        <mutation items="3"/>
+                        <value name="ADD0">
+                          <block type="text">
+                            <field name="TEXT">Acceleration[Z]: </field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="math_arithmetic">
+                            <field name="OP">DIVIDE</field>
+                            <value name="A">
+                              <block type="lists_getIndex">
+                                <mutation at="true" statement="false"/>
+                                <field name="MODE">GET</field>
+                                <field name="WHERE">FROM_START</field>
+                                <value name="VALUE">
+                                  <block type="variables_get">
+                                    <field name="VAR">Acceleration</field>
+                                  </block>
+                                </value>
+                                <value name="AT">
+                                  <block type="math_number">
+                                    <field name="NUM">3</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="math_number">
+                                <field name="NUM">1000.0</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="ADD2">
+                          <block type="text">
+                            <field name="TEXT"> g</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next/>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </program>
+    <gui/>
+  </tvpl>
+</xml>

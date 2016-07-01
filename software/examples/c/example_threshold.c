@@ -5,7 +5,7 @@
 
 #define HOST "localhost"
 #define PORT 4223
-#define UID "XYZ" // Change to your UID
+#define UID "XYZ" // Change XYZ to the UID of your Accelerometer Bricklet
 
 // Callback function for acceleration reached callback (parameters have unit g/1000)
 void cb_acceleration_reached(int16_t x, int16_t y, int16_t z, void *user_data) {

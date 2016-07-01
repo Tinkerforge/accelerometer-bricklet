@@ -5,7 +5,7 @@ use Tinkerforge::BrickletAccelerometer;
 
 use constant HOST => 'localhost';
 use constant PORT => 4223;
-use constant UID => 'XYZ'; # Change to your UID
+use constant UID => 'XYZ'; # Change XYZ to the UID of your Accelerometer Bricklet
 
 # Callback subroutine for acceleration reached callback (parameters have unit g/1000)
 sub cb_acceleration_reached

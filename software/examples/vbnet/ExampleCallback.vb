@@ -4,7 +4,7 @@ Imports Tinkerforge
 Module ExampleCallback
     Const HOST As String = "localhost"
     Const PORT As Integer = 4223
-    Const UID As String = "XYZ" ' Change to your UID
+    Const UID As String = "XYZ" ' Change XYZ to the UID of your Accelerometer Bricklet
 
     ' Callback subroutine for acceleration callback (parameters have unit g/1000)
     Sub AccelerationCB(ByVal sender As BrickletAccelerometer, ByVal x As Short, ByVal y As Short, _
