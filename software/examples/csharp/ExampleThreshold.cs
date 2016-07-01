@@ -8,7 +8,8 @@ class Example
 	private static string UID = "XYZ"; // Change XYZ to the UID of your Accelerometer Bricklet
 
 	// Callback function for acceleration reached callback (parameters have unit g/1000)
-	static void AccelerationReachedCB(BrickletAccelerometer sender, short x, short y, short z)
+	static void AccelerationReachedCB(BrickletAccelerometer sender, short x, short y,
+	                                  short z)
 	{
 		Console.WriteLine("Acceleration[X]: " + x/1000.0 + " g");
 		Console.WriteLine("Acceleration[Y]: " + y/1000.0 + " g");

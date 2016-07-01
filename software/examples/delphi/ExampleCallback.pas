@@ -12,8 +12,8 @@ type
     ipcon: TIPConnection;
     a: TBrickletAccelerometer;
   public
-    procedure AccelerationCB(sender: TBrickletAccelerometer; const x: smallint; const y: smallint;
-                             const z: smallint);
+    procedure AccelerationCB(sender: TBrickletAccelerometer; const x: smallint;
+                             const y: smallint; const z: smallint);
     procedure Execute;
   end;
 

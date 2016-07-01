@@ -7,8 +7,8 @@ Module ExampleCallback
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Accelerometer Bricklet
 
     ' Callback subroutine for acceleration callback (parameters have unit g/1000)
-    Sub AccelerationCB(ByVal sender As BrickletAccelerometer, ByVal x As Short, ByVal y As Short, _
-                       ByVal z As Short)
+    Sub AccelerationCB(ByVal sender As BrickletAccelerometer, ByVal x As Short, _
+                       ByVal y As Short, ByVal z As Short)
         Console.WriteLine("Acceleration[X]: " + (x/1000.0).ToString() + " g")
         Console.WriteLine("Acceleration[Y]: " + (y/1000.0).ToString() + " g")
         Console.WriteLine("Acceleration[Z]: " + (z/1000.0).ToString() + " g")

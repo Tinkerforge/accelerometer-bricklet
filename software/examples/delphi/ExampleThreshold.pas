@@ -26,8 +26,9 @@ var
   e: TExample;
 
 { Callback procedure for acceleration reached callback (parameters have unit g/1000) }
-procedure TExample.AccelerationReachedCB(sender: TBrickletAccelerometer; const x: smallint;
-                                         const y: smallint; const z: smallint);
+procedure TExample.AccelerationReachedCB(sender: TBrickletAccelerometer;
+                                         const x: smallint; const y: smallint;
+                                         const z: smallint);
 begin
   WriteLn(Format('Acceleration[X]: %f g', [x/1000.0]));
   WriteLn(Format('Acceleration[Y]: %f g', [y/1000.0]));
