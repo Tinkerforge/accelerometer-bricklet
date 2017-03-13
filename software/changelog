@@ -3,3 +3,6 @@
 
 2015-08-14: 2.0.1 (baddc91)
 - Fix value comparison for threshold callback
+
+2017-03-13: 2.0.2 (???)
+- Fix scale-selection value of 16 (was 24 by accident)
