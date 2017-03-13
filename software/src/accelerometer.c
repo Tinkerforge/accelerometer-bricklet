@@ -34,7 +34,7 @@
 
 #define VALUE_TO_MG(value) ((value)*1000/((1 << 15)/full_scale_div[BC->full_scale]))
 
-const uint8_t full_scale_div[5] = {2, 4, 6, 8, 24};
+const uint8_t full_scale_div[5] = {2, 4, 6, 8, 16};
 
 const SimpleMessageProperty smp[] = {
 	{SIMPLE_UNIT_ACCELERATION, SIMPLE_TRANSFER_VALUE, SIMPLE_DIRECTION_GET}, // TYPE_GET_ACCELERATION
