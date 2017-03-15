@@ -7,5 +7,5 @@
 2017-03-13: 2.0.2 (e6d24bb)
 - Fix scale-selection value of 16 (was 24 by accident)
 
-2017-03-15: 2.0.3 (TBD)
+2017-03-15: 2.0.3 (b9f2190)
 - Use I2C mutex to properly share Accelerometer Polling-I2C with IMU V2 DMA-I2C
