@@ -245,6 +245,8 @@ uint8_t lis3dsh_get_address(void) {
 
 void lis3dsh_read_register(const uint8_t reg, const uint8_t length, uint8_t *data) {
 	const uint8_t port = BS->port - 'a';
+
+	BA->mutex_take(*BA->mutex_twi_bricklet, MUTEX_BLOCKING);
 	BA->bricklet_select(port);
 
 	BA->TWID_Read(BA->twid,
@@ -256,10 +258,13 @@ void lis3dsh_read_register(const uint8_t reg, const uint8_t length, uint8_t *dat
 	              NULL);
 
 	BA->bricklet_deselect(port);
+	BA->mutex_give(*BA->mutex_twi_bricklet);
 }
 
 void lis3dsh_write_register(const uint8_t reg, const uint8_t length, const uint8_t *data) {
 	const uint8_t port = BS->port - 'a';
+
+	BA->mutex_take(*BA->mutex_twi_bricklet, MUTEX_BLOCKING);
 	BA->bricklet_select(port);
 
 	BA->TWID_Write(BA->twid,
@@ -271,4 +276,5 @@ void lis3dsh_write_register(const uint8_t reg, const uint8_t length, const uint8
 	               NULL);
 
 	BA->bricklet_deselect(port);
+	BA->mutex_give(*BA->mutex_twi_bricklet);
 }
