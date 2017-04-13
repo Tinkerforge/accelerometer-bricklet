@@ -25,7 +25,7 @@ class Example
 		// Don't use device before ipcon is connected
 
 		// Register acceleration callback to function AccelerationCB
-		a.Acceleration += AccelerationCB;
+		a.AccelerationCallback += AccelerationCB;
 
 		// Set period for acceleration callback to 1s (1000ms)
 		// Note: The acceleration callback is only called every second

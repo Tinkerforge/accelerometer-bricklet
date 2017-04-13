@@ -29,7 +29,7 @@ class Example
 		a.SetDebouncePeriod(10000);
 
 		// Register acceleration reached callback to function AccelerationReachedCB
-		a.AccelerationReached += AccelerationReachedCB;
+		a.AccelerationReachedCallback += AccelerationReachedCB;
 
 		// Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
 		a.SetAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
