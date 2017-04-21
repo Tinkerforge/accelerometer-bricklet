@@ -10,7 +10,7 @@ tinkerforge call accelerometer-bricklet $uid set-debounce-period 10000
 tinkerforge dispatch accelerometer-bricklet $uid acceleration-reached &
 
 # Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
-tinkerforge call accelerometer-bricklet $uid set-acceleration-callback-threshold greater 2000 0 2000 0 2000 0
+tinkerforge call accelerometer-bricklet $uid set-acceleration-callback-threshold threshold-option-greater 2000 0 2000 0 2000 0
 
 echo "Press key to exit"; read dummy
 
