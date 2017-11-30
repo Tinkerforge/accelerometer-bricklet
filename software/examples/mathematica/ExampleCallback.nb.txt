@@ -18,7 +18,7 @@ AccelerationCB[sender_,x_,y_,z_]:=
   Print["Acceleration[Z]: "<>ToString[N[Quantity[z,"g/1000"]]]]
  ]
 
-AddEventHandler[a@Acceleration,AccelerationCB]
+AddEventHandler[a@AccelerationCallback,AccelerationCB]
 
 (*Set period for acceleration callback to 1s (1000ms)*)
 (*Note: The acceleration callback is only called every second*)

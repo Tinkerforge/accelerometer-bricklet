@@ -23,7 +23,7 @@ Module ExampleCallback
         ' Don't use device before ipcon is connected
 
         ' Register acceleration callback to subroutine AccelerationCB
-        AddHandler a.Acceleration, AddressOf AccelerationCB
+        AddHandler a.AccelerationCallback, AddressOf AccelerationCB
 
         ' Set period for acceleration callback to 1s (1000ms)
         ' Note: The acceleration callback is only called every second

@@ -26,7 +26,7 @@ Module ExampleThreshold
         a.SetDebouncePeriod(10000)
 
         ' Register acceleration reached callback to subroutine AccelerationReachedCB
-        AddHandler a.AccelerationReached, AddressOf AccelerationReachedCB
+        AddHandler a.AccelerationReachedCallback, AddressOf AccelerationReachedCB
 
         ' Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
         a.SetAccelerationCallbackThreshold(">"C, 2*1000, 0, 2*1000, 0, 2*1000, 0)
