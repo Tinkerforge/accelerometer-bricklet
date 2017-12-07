@@ -1,156 +1,46 @@
-(*CacheID: 234*)
-(* Internal cache information:
-NotebookFileLineBreakTest
-NotebookFileLineBreakTest
-NotebookDataPosition[         0,          0]
-NotebookDataLength[      5570,        155]
-NotebookOptionsPosition[      5138,        134]
-NotebookOutlinePosition[      5477,        149]
-CellTagsIndexPosition[      5434,        146]
-WindowFrame->Normal*)
-
-(* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[{
- RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}], "\[IndentingNewLine]", 
- RowBox[{"LoadNETAssembly", "[", 
-  RowBox[{"\"\<Tinkerforge\>\"", ",", 
-   RowBox[{
-    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], 
-  "]"}]}], "Input",
- CellChangeTimes->{{3.643542037418895*^9, 3.643542037424375*^9}, {
-  3.64354318608257*^9, 3.643543227900782*^9}, {3.643543298083702*^9, 
-  3.643543298145677*^9}, {3.643543699761508*^9, 3.643543701786042*^9}}],
-
-Cell[BoxData[{
- RowBox[{"host", "=", "\"\<localhost\>\""}], "\n", 
- RowBox[{"port", "=", "4223"}], "\n", 
- RowBox[{
-  RowBox[{"uid", "=", "\"\<XYZ\>\""}], 
-  RowBox[{"(*", 
-   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], "*)"}], "\n", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "Create", " ", "IPConnection", " ", "and", " ", "device", " ", "object"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"ipcon", "=", 
-  RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
- RowBox[{"a", "=", 
-  RowBox[{"NETNew", "[", 
-   RowBox[{
-   "\"\<Tinkerforge.BrickletAccelerometer\>\"", ",", "uid", ",", "ipcon"}], 
-   "]"}]}], "\n", 
- RowBox[{
-  RowBox[{"ipcon", "@", 
-   RowBox[{"Connect", "[", 
-    RowBox[{"host", ",", "port"}], "]"}]}], "\n", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "Get", " ", "threshold", " ", "callbacks", " ", "with", " ", "a", " ", 
-    "debounce", " ", "time", " ", "of", " ", "10", " ", "seconds", " ", 
-    RowBox[{"(", 
-     RowBox[{"10000", "ms"}], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"a", "@", 
-   RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}], "\n", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "Callback", " ", "function", " ", "for", " ", "acceleration", " ", 
-    "reached", " ", "callback", " ", 
-    RowBox[{"(", 
-     RowBox[{"parameters", " ", "have", " ", "unit", " ", 
-      RowBox[{"g", "/", "1000"}]}], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
-
- RowBox[{
-  RowBox[{
-   RowBox[{"AccelerationReachedCB", "[", 
-    RowBox[{"sender_", ",", "x_", ",", "y_", ",", "z_"}], "]"}], ":=", 
-   "\[IndentingNewLine]", 
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"Print", "[", 
-       RowBox[{"\"\<Acceleration[X]: \>\"", "<>", 
-        RowBox[{"ToString", "[", 
-         RowBox[{"N", "[", 
-          RowBox[{"Quantity", "[", 
-           RowBox[{"x", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
-       ";", "\[IndentingNewLine]", 
-      RowBox[{"Print", "[", 
-       RowBox[{"\"\<Acceleration[Y]: \>\"", "<>", 
-        RowBox[{"ToString", "[", 
-         RowBox[{"N", "[", 
-          RowBox[{"Quantity", "[", 
-           RowBox[{"y", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
-       ";", "\[IndentingNewLine]", 
-      RowBox[{"Print", "[", 
-       RowBox[{"\"\<Acceleration[Z]: \>\"", "<>", 
-        RowBox[{"ToString", "[", 
-         RowBox[{"N", "[", 
-          RowBox[{"Quantity", "[", 
-           RowBox[{"z", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], 
-       "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
-  "\n"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"AddEventHandler", "[", 
-   RowBox[{
-    RowBox[{"a", "@", "AccelerationReached"}], ",", "AccelerationReachedCB"}],
-    "]"}], "\n", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "Configure", " ", "threshold", " ", "for", " ", "acceleration", " ", 
-    "\"\<greater than 2 g, 2 g, 2 g\>\"", " ", 
-    RowBox[{"(", 
-     RowBox[{"unit", " ", "is", " ", 
-      RowBox[{"g", "/", "1000"}]}], ")"}]}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"option", "=", 
-  "Tinkerforge`BrickletAccelerometer`THRESHOLDUOPTIONUGREATER"}], "\n", 
- RowBox[{
-  RowBox[{"a", "@", 
-   RowBox[{"SetAccelerationCallbackThreshold", "[", 
-    RowBox[{"option", ",", 
-     RowBox[{"2", "*", "1000"}], ",", "0", ",", 
-     RowBox[{"2", "*", "1000"}], ",", "0", ",", 
-     RowBox[{"2", "*", "1000"}], ",", "0"}], "]"}]}], 
-  "\n"}], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}], "\n", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{"Clean", " ", "up"}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"ipcon", "@", 
-  RowBox[{"Disconnect", "[", "]"}]}], "\n", 
- RowBox[{"ReleaseNETObject", "[", "a", "]"}], "\n", 
- RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]}], "Input",
- CellChangeTimes->{{3.643542049975746*^9, 3.64354212261869*^9}, {
-   3.643543622415845*^9, 3.643543628561249*^9}, {3.6435437684756813`*^9, 
-   3.64354378171213*^9}, 3.643605539128677*^9, {3.644144481446426*^9, 
-   3.6441445119511623`*^9}, {3.644144768232298*^9, 3.644144770376988*^9}, {
-   3.6514681312310667`*^9, 3.651468141815441*^9}}]
-},
-WindowSize->{1479, 861},
-WindowMargins->{{Automatic, 122}, {92, Automatic}},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
-StyleDefinitions->"Default.nb"
-]
-(* End of Notebook Content *)
-
-(* Internal cache information *)
-(*CellTagsOutline
-CellTagsIndex->{}
-*)
-(*CellTagsIndex
-CellTagsIndex->{}
-*)
-(*NotebookFileOutline
-Notebook[{
-Cell[400, 13, 478, 9, 55, "Input"],
-Cell[881, 24, 4253, 108, 715, "Input"]
-}
-]
-*)
-
+ Cell[
+  BoxData[{
+   RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}],
+   RowBox[{"LoadNETAssembly", "[", RowBox[{"\"\<Tinkerforge\>\"", ",", RowBox[{RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], "]"}]
+  }], "Input"
+ ],
+ Cell[
+  BoxData[{
+   RowBox[{"host", "=", "\"\<localhost\>\""}],
+   RowBox[{"port", "=", "4223"}],
+   RowBox[{"uid", "=", "\"\<XYZ\>\"", RowBox[{"(*", "Change XYZ to the UID of your Accelerometer Bricklet", "*)"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Create IPConnection and device object", "*)"}],
+   RowBox[{"ipcon", "=", RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}],
+   RowBox[{"a", "=", RowBox[{"NETNew", "[", RowBox[{"\"\<Tinkerforge.BrickletAccelerometer\>\"", ",", "uid", ",", "ipcon"}], "]"}]}],
+   RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Get threshold callbacks with a debounce time of 10 seconds (10000ms)", "*)"}],
+   RowBox[{"a", "@", RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Callback function for acceleration reached callback (parameters have unit g/1000)", "*)"}],
+   RowBox[{RowBox[{"AccelerationReachedCB", "[", RowBox[{"sender_", ",", "x_", ",", "y_", ",", "z_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Module", "[", RowBox[{RowBox[{"{", "}"}], ",", RowBox[{"\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[X]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"x", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[Y]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"y", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[Z]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"z", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], "\[IndentingNewLine]"}]}], "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"a", "@", "AccelerationReachedCallback"}], ",", "AccelerationReachedCB"}], "]"}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Configure threshold for acceleration ", "\"\<greater than 2 g, 2 g, 2 g\>\"", " (unit is g/1000)", "*)"}],
+   RowBox[{"option", "=", "Tinkerforge`BrickletAccelerometer`THRESHOLDUOPTIONUGREATER"}],
+   RowBox[{"a", "@", RowBox[{"SetAccelerationCallbackThreshold", "[", RowBox[{"option", ",", RowBox[{"2", "*", "1000"}], ",", "0", ",", RowBox[{"2", "*", "1000"}], ",", "0", ",", RowBox[{"2", "*", "1000"}], ",", "0"}], "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"Input", "[", "\"\<Click OK to exit\>\"", "]"}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Clean up", "*)"}],
+   RowBox[{"ipcon", "@", RowBox[{"Disconnect", "[", "]"}]}],
+   RowBox[{"ReleaseNETObject", "[", "a", "]"}],
+   RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]
+  }], "Input"
+ ]
+}]

@@ -1,122 +1,39 @@
-(* Content-type: application/vnd.wolfram.mathematica *)
-
-(*** Wolfram Notebook File ***)
-(* http://www.wolfram.com/nb *)
-
-(* CreatedBy='Mathematica 9.0' *)
-
-(*CacheID: 234*)
-(* Internal cache information:
-NotebookFileLineBreakTest
-NotebookFileLineBreakTest
-NotebookDataPosition[       157,          7]
-NotebookDataLength[      3693,        113]
-NotebookOptionsPosition[      3419,         99]
-NotebookOutlinePosition[      3758,        114]
-CellTagsIndexPosition[      3715,        111]
-WindowFrame->Normal*)
-
-(* Beginning of Notebook Content *)
 Notebook[{
-Cell[BoxData[{
- RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}], "\n", 
- RowBox[{"LoadNETAssembly", "[", 
-  RowBox[{"\"\<Tinkerforge\>\"", ",", 
-   RowBox[{
-    RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], 
-  "]"}]}], "Input",
- CellChangeTimes->{{3.6435439372792807`*^9, 3.6435439425329227`*^9}}],
-
-Cell[BoxData[{
- RowBox[{"host", "=", "\"\<localhost\>\""}], "\n", 
- RowBox[{"port", "=", "4223"}], "\n", 
- RowBox[{
-  RowBox[{"uid", "=", "\"\<XYZ\>\""}], 
-  RowBox[{"(*", 
-   RowBox[{"Change", " ", "to", " ", "your", " ", "UID"}], "*)"}], "\n", 
-  "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-   "Create", " ", "IPConnection", " ", "and", " ", "device", " ", "object"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"ipcon", "=", 
-  RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}], "\n", 
- RowBox[{"a", "=", 
-  RowBox[{"NETNew", "[", 
-   RowBox[{
-   "\"\<Tinkerforge.BrickletAccelerometer\>\"", ",", "uid", ",", "ipcon"}], 
-   "]"}]}], "\n", 
- RowBox[{
-  RowBox[{"ipcon", "@", 
-   RowBox[{"Connect", "[", 
-    RowBox[{"host", ",", "port"}], "]"}]}], "\[IndentingNewLine]"}], "\n", 
- RowBox[{
-  RowBox[{
-   RowBox[{"x", "=", "0"}], ";", 
-   RowBox[{"y", "=", "0"}], ";", 
-   RowBox[{"z", "=", "0"}]}], "\n", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{"Get", " ", "current", " ", "acceleration", " ", 
-    RowBox[{"(", 
-     RowBox[{"unit", " ", "is", " ", 
-      RowBox[{"g", "/", "1000"}]}], ")"}]}], "*)"}]}], "\[IndentingNewLine]", 
-
- RowBox[{
-  RowBox[{"a", "@", 
-   RowBox[{"GetAcceleration", "[", 
-    RowBox[{"x", ",", "y", ",", "z"}], "]"}]}], "\[IndentingNewLine]"}], "\n", 
- RowBox[{"Print", "[", 
-  RowBox[{"\"\<Acceleration[X]: \>\"", "<>", 
-   RowBox[{"ToString", "[", 
-    RowBox[{"N", "[", 
-     RowBox[{"Quantity", "[", 
-      RowBox[{"x", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], 
-  "]"}], "\n", 
- RowBox[{"Print", "[", 
-  RowBox[{"\"\<Acceleration[Y]: \>\"", "<>", 
-   RowBox[{"ToString", "[", 
-    RowBox[{"N", "[", 
-     RowBox[{"Quantity", "[", 
-      RowBox[{"y", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], 
-  "]"}], "\n", 
- RowBox[{
-  RowBox[{"Print", "[", 
-   RowBox[{"\"\<Acceleration[Z]: \>\"", "<>", 
-    RowBox[{"ToString", "[", 
-     RowBox[{"N", "[", 
-      RowBox[{"Quantity", "[", 
-       RowBox[{"z", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], 
-  "\n", "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{"Clean", " ", "up"}], "*)"}]}], "\[IndentingNewLine]", 
- RowBox[{"ipcon", "@", 
-  RowBox[{"Disconnect", "[", "]"}]}], "\n", 
- RowBox[{"ReleaseNETObject", "[", "a", "]"}], "\n", 
- RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}], "\n"}], "Input",
- CellChangeTimes->{{3.643543946510824*^9, 3.6435439722509203`*^9}, {
-   3.644144464338582*^9, 3.644144465543445*^9}, {3.644144747910021*^9, 
-   3.64414475072127*^9}, 3.651468161160034*^9}]
-},
-WindowSize->{1010, 880},
-WindowMargins->{{387, Automatic}, {Automatic, 27}},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (November 20, 2012)",
-StyleDefinitions->"Default.nb"
-]
-(* End of Notebook Content *)
-
-(* Internal cache information *)
-(*CellTagsOutline
-CellTagsIndex->{}
-*)
-(*CellTagsIndex
-CellTagsIndex->{}
-*)
-(*NotebookFileOutline
-Notebook[{
-Cell[557, 20, 322, 7, 55, "Input"],
-Cell[882, 29, 2533, 68, 517, "Input"]
-}
-]
-*)
-
-(* End of internal cache information *)
+ Cell[
+  BoxData[{
+   RowBox[{"Needs", "[", "\"\<NETLink`\>\"", "]"}],
+   RowBox[{"LoadNETAssembly", "[", RowBox[{"\"\<Tinkerforge\>\"", ",", RowBox[{RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<../../..\>\""}]}], "]"}]
+  }], "Input"
+ ],
+ Cell[
+  BoxData[{
+   RowBox[{"host", "=", "\"\<localhost\>\""}],
+   RowBox[{"port", "=", "4223"}],
+   RowBox[{"uid", "=", "\"\<XYZ\>\"", RowBox[{"(*", "Change XYZ to the UID of your Accelerometer Bricklet", "*)"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Create IPConnection and device object", "*)"}],
+   RowBox[{"ipcon", "=", RowBox[{"NETNew", "[", "\"\<Tinkerforge.IPConnection\>\"", "]"}]}],
+   RowBox[{"a", "=", RowBox[{"NETNew", "[", RowBox[{"\"\<Tinkerforge.BrickletAccelerometer\>\"", ",", "uid", ",", "ipcon"}], "]"}]}],
+   RowBox[{"ipcon", "@", RowBox[{"Connect", "[", RowBox[{"host", ",", "port"}], "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"x", "=", "0", ";", "y", "=", "0", ";", "z", "=", "0"}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Get current acceleration (unit is g/1000)", "*)"}],
+   RowBox[{"a", "@", RowBox[{"GetAcceleration", "[", RowBox[{"x", ",", "y", ",", "z"}], "]"}]}],
+   RowBox[{"
+"}],
+   RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[X]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"x", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
+   RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[Y]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"y", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
+   RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[Z]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"z", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
+   RowBox[{"
+"}],
+   RowBox[{"(*", "Clean up", "*)"}],
+   RowBox[{"ipcon", "@", RowBox[{"Disconnect", "[", "]"}]}],
+   RowBox[{"ReleaseNETObject", "[", "a", "]"}],
+   RowBox[{"ReleaseNETObject", "[", "ipcon", "]"}]
+  }], "Input"
+ ]
+}]
