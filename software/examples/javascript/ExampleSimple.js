@@ -16,12 +16,12 @@ ipcon.connect(HOST, PORT,
 
 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
     function (connectReason) {
-        // Get current acceleration (unit is g/1000)
+        // Get current acceleration
         a.getAcceleration(
             function (x, y, z) {
-                console.log('Acceleration[X]: ' + x/1000.0 + ' g');
-                console.log('Acceleration[Y]: ' + y/1000.0 + ' g');
-                console.log('Acceleration[Z]: ' + z/1000.0 + ' g');
+                console.log('Acceleration [X]: ' + x/1000.0 + ' g');
+                console.log('Acceleration [Y]: ' + y/1000.0 + ' g');
+                console.log('Acceleration [Z]: ' + z/1000.0 + ' g');
             },
             function (error) {
                 console.log('Error: ' + error);

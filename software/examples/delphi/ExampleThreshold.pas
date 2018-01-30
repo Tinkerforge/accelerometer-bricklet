@@ -25,14 +25,14 @@ const
 var
   e: TExample;
 
-{ Callback procedure for acceleration reached callback (parameters have unit g/1000) }
+{ Callback procedure for acceleration reached callback }
 procedure TExample.AccelerationReachedCB(sender: TBrickletAccelerometer;
                                          const x: smallint; const y: smallint;
                                          const z: smallint);
 begin
-  WriteLn(Format('Acceleration[X]: %f g', [x/1000.0]));
-  WriteLn(Format('Acceleration[Y]: %f g', [y/1000.0]));
-  WriteLn(Format('Acceleration[Z]: %f g', [z/1000.0]));
+  WriteLn(Format('Acceleration [X]: %f g', [x/1000.0]));
+  WriteLn(Format('Acceleration [Y]: %f g', [y/1000.0]));
+  WriteLn(Format('Acceleration [Z]: %f g', [z/1000.0]));
   WriteLn('');
 end;
 
@@ -54,7 +54,7 @@ begin
   { Register acceleration reached callback to procedure AccelerationReachedCB }
   a.OnAccelerationReached := {$ifdef FPC}@{$endif}AccelerationReachedCB;
 
-  { Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000) }
+  { Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" }
   a.SetAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
   WriteLn('Press key to exit');

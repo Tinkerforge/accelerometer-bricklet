@@ -24,10 +24,10 @@ function matlab_example_callback()
     ipcon.disconnect();
 end
 
-% Callback function for acceleration callback (parameters have unit g/1000)
+% Callback function for acceleration callback
 function cb_acceleration(e)
-    fprintf('Acceleration[X]: %g g\n', e.x/1000.0);
-    fprintf('Acceleration[Y]: %g g\n', e.y/1000.0);
-    fprintf('Acceleration[Z]: %g g\n', e.z/1000.0);
+    fprintf('Acceleration [X]: %g g\n', e.x/1000.0);
+    fprintf('Acceleration [Y]: %g g\n', e.y/1000.0);
+    fprintf('Acceleration [Z]: %g g\n', e.z/1000.0);
     fprintf('\n');
 end

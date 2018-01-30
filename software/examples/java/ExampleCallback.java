@@ -17,12 +17,12 @@ public class ExampleCallback {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Add acceleration listener (parameters have unit g/1000)
+		// Add acceleration listener
 		a.addAccelerationListener(new BrickletAccelerometer.AccelerationListener() {
 			public void acceleration(short x, short y, short z) {
-				System.out.println("Acceleration[X]: " + x/1000.0 + " g");
-				System.out.println("Acceleration[Y]: " + y/1000.0 + " g");
-				System.out.println("Acceleration[Z]: " + z/1000.0 + " g");
+				System.out.println("Acceleration [X]: " + x/1000.0 + " g");
+				System.out.println("Acceleration [Y]: " + y/1000.0 + " g");
+				System.out.println("Acceleration [Z]: " + z/1000.0 + " g");
 				System.out.println("");
 			}
 		});

@@ -6,12 +6,12 @@ Module ExampleThreshold
     Const PORT As Integer = 4223
     Const UID As String = "XYZ" ' Change XYZ to the UID of your Accelerometer Bricklet
 
-    ' Callback subroutine for acceleration reached callback (parameters have unit g/1000)
+    ' Callback subroutine for acceleration reached callback
     Sub AccelerationReachedCB(ByVal sender As BrickletAccelerometer, ByVal x As Short, _
                               ByVal y As Short, ByVal z As Short)
-        Console.WriteLine("Acceleration[X]: " + (x/1000.0).ToString() + " g")
-        Console.WriteLine("Acceleration[Y]: " + (y/1000.0).ToString() + " g")
-        Console.WriteLine("Acceleration[Z]: " + (z/1000.0).ToString() + " g")
+        Console.WriteLine("Acceleration [X]: " + (x/1000.0).ToString() + " g")
+        Console.WriteLine("Acceleration [Y]: " + (y/1000.0).ToString() + " g")
+        Console.WriteLine("Acceleration [Z]: " + (z/1000.0).ToString() + " g")
         Console.WriteLine("")
     End Sub
 
@@ -28,7 +28,7 @@ Module ExampleThreshold
         ' Register acceleration reached callback to subroutine AccelerationReachedCB
         AddHandler a.AccelerationReachedCallback, AddressOf AccelerationReachedCB
 
-        ' Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
+        ' Configure threshold for acceleration "greater than 2 g, 2 g, 2 g"
         a.SetAccelerationCallbackThreshold(">"C, 2*1000, 0, 2*1000, 0, 2*1000, 0)
 
         Console.WriteLine("Press key to exit")

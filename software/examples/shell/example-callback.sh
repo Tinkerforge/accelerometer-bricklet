@@ -3,7 +3,7 @@
 
 uid=XYZ # Change XYZ to the UID of your Accelerometer Bricklet
 
-# Handle incoming acceleration callbacks (parameters have unit g/1000)
+# Handle incoming acceleration callbacks
 tinkerforge dispatch accelerometer-bricklet $uid acceleration &
 
 # Set period for acceleration callback to 1s (1000ms)

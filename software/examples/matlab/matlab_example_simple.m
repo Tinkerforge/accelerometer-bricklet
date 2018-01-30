@@ -12,12 +12,12 @@ function matlab_example_simple()
     ipcon.connect(HOST, PORT); % Connect to brickd
     % Don't use device before ipcon is connected
 
-    % Get current acceleration (unit is g/1000)
+    % Get current acceleration
     acceleration = a.getAcceleration();
 
-    fprintf('Acceleration[X]: %g g\n', acceleration.x/1000.0);
-    fprintf('Acceleration[Y]: %g g\n', acceleration.y/1000.0);
-    fprintf('Acceleration[Z]: %g g\n', acceleration.z/1000.0);
+    fprintf('Acceleration [X]: %g g\n', acceleration.x/1000.0);
+    fprintf('Acceleration [Y]: %g g\n', acceleration.y/1000.0);
+    fprintf('Acceleration [Z]: %g g\n', acceleration.z/1000.0);
 
     input('Press key to exit\n', 's');
     ipcon.disconnect();

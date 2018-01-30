@@ -10,12 +10,12 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Accelerometer Bricklet
 
-// Callback function for acceleration callback (parameters have unit g/1000)
+// Callback function for acceleration callback
 function cb_acceleration($x, $y, $z)
 {
-    echo "Acceleration[X]: " . $x/1000.0 . " g\n";
-    echo "Acceleration[Y]: " . $y/1000.0 . " g\n";
-    echo "Acceleration[Z]: " . $z/1000.0 . " g\n";
+    echo "Acceleration [X]: " . $x/1000.0 . " g\n";
+    echo "Acceleration [Y]: " . $y/1000.0 . " g\n";
+    echo "Acceleration [Z]: " . $z/1000.0 . " g\n";
     echo "\n";
 }
 

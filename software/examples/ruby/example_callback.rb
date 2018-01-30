@@ -16,11 +16,11 @@ a = BrickletAccelerometer.new UID, ipcon # Create device object
 ipcon.connect HOST, PORT # Connect to brickd
 # Don't use device before ipcon is connected
 
-# Register acceleration callback (parameters have unit g/1000)
+# Register acceleration callback
 a.register_callback(BrickletAccelerometer::CALLBACK_ACCELERATION) do |x, y, z|
-  puts "Acceleration[X]: #{x/1000.0} g"
-  puts "Acceleration[Y]: #{y/1000.0} g"
-  puts "Acceleration[Z]: #{z/1000.0} g"
+  puts "Acceleration [X]: #{x/1000.0} g"
+  puts "Acceleration [Y]: #{y/1000.0} g"
+  puts "Acceleration [Z]: #{z/1000.0} g"
   puts ''
 end
 

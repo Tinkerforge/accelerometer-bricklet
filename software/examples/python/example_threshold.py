@@ -8,11 +8,11 @@ UID = "XYZ" # Change XYZ to the UID of your Accelerometer Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_accelerometer import BrickletAccelerometer
 
-# Callback function for acceleration reached callback (parameters have unit g/1000)
+# Callback function for acceleration reached callback
 def cb_acceleration_reached(x, y, z):
-    print("Acceleration[X]: " + str(x/1000.0) + " g")
-    print("Acceleration[Y]: " + str(y/1000.0) + " g")
-    print("Acceleration[Z]: " + str(z/1000.0) + " g")
+    print("Acceleration [X]: " + str(x/1000.0) + " g")
+    print("Acceleration [Y]: " + str(y/1000.0) + " g")
+    print("Acceleration [Z]: " + str(z/1000.0) + " g")
     print("")
 
 if __name__ == "__main__":
@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # Register acceleration reached callback to function cb_acceleration_reached
     a.register_callback(a.CALLBACK_ACCELERATION_REACHED, cb_acceleration_reached)
 
-    # Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
+    # Configure threshold for acceleration "greater than 2 g, 2 g, 2 g"
     a.set_acceleration_callback_threshold(">", 2*1000, 0, 2*1000, 0, 2*1000, 0)
 
     raw_input("Press key to exit\n") # Use input() in Python 3

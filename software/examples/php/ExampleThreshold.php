@@ -10,12 +10,12 @@ const HOST = 'localhost';
 const PORT = 4223;
 const UID = 'XYZ'; // Change XYZ to the UID of your Accelerometer Bricklet
 
-// Callback function for acceleration reached callback (parameters have unit g/1000)
+// Callback function for acceleration reached callback
 function cb_accelerationReached($x, $y, $z)
 {
-    echo "Acceleration[X]: " . $x/1000.0 . " g\n";
-    echo "Acceleration[Y]: " . $y/1000.0 . " g\n";
-    echo "Acceleration[Z]: " . $z/1000.0 . " g\n";
+    echo "Acceleration [X]: " . $x/1000.0 . " g\n";
+    echo "Acceleration [Y]: " . $y/1000.0 . " g\n";
+    echo "Acceleration [Z]: " . $z/1000.0 . " g\n";
     echo "\n";
 }
 
@@ -32,7 +32,7 @@ $a->setDebouncePeriod(10000);
 $a->registerCallback(BrickletAccelerometer::CALLBACK_ACCELERATION_REACHED,
                      'cb_accelerationReached');
 
-// Configure threshold for acceleration "greater than 2 g, 2 g, 2 g" (unit is g/1000)
+// Configure threshold for acceleration "greater than 2 g, 2 g, 2 g"
 $a->setAccelerationCallbackThreshold('>', 2*1000, 0, 2*1000, 0, 2*1000, 0);
 
 echo "Press ctrl+c to exit\n";

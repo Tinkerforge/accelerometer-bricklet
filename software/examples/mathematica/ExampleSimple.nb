@@ -21,13 +21,13 @@ Notebook[{
    RowBox[{"x", "=", "0", ";", "y", "=", "0", ";", "z", "=", "0"}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Get current acceleration (unit is g/1000)", "*)"}],
+   RowBox[{"(*", "Get current acceleration", "*)"}],
    RowBox[{"a", "@", RowBox[{"GetAcceleration", "[", RowBox[{"x", ",", "y", ",", "z"}], "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[X]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"x", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
-   RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[Y]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"y", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
-   RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[Z]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"z", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
+   RowBox[{"Print", "[", RowBox[{"\"\<Acceleration [X]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"x", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
+   RowBox[{"Print", "[", RowBox[{"\"\<Acceleration [Y]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"y", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
+   RowBox[{"Print", "[", RowBox[{"\"\<Acceleration [Z]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"z", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}],
    RowBox[{"
 "}],
    RowBox[{"(*", "Clean up", "*)"}],

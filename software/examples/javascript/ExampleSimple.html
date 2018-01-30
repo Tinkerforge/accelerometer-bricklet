@@ -41,12 +41,12 @@
 
                 ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
                     function (connectReason) {
-                        // Get current acceleration (unit is g/1000)
+                        // Get current acceleration
                         a.getAcceleration(
                             function (x, y, z) {
-                                textArea.value += 'Acceleration[X]: ' + x/1000.0 + ' g\n';
-                                textArea.value += 'Acceleration[Y]: ' + y/1000.0 + ' g\n';
-                                textArea.value += 'Acceleration[Z]: ' + z/1000.0 + ' g\n';
+                                textArea.value += 'Acceleration [X]: ' + x/1000.0 + ' g\n';
+                                textArea.value += 'Acceleration [Y]: ' + y/1000.0 + ' g\n';
+                                textArea.value += 'Acceleration [Z]: ' + z/1000.0 + ' g\n';
                             },
                             function (error) {
                                 textArea.value += 'Error: ' + error + '\n';

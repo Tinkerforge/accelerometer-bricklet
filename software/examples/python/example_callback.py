@@ -8,11 +8,11 @@ UID = "XYZ" # Change XYZ to the UID of your Accelerometer Bricklet
 from tinkerforge.ip_connection import IPConnection
 from tinkerforge.bricklet_accelerometer import BrickletAccelerometer
 
-# Callback function for acceleration callback (parameters have unit g/1000)
+# Callback function for acceleration callback
 def cb_acceleration(x, y, z):
-    print("Acceleration[X]: " + str(x/1000.0) + " g")
-    print("Acceleration[Y]: " + str(y/1000.0) + " g")
-    print("Acceleration[Z]: " + str(z/1000.0) + " g")
+    print("Acceleration [X]: " + str(x/1000.0) + " g")
+    print("Acceleration [Y]: " + str(y/1000.0) + " g")
+    print("Acceleration [Z]: " + str(z/1000.0) + " g")
     print("")
 
 if __name__ == "__main__":

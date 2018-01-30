@@ -23,16 +23,16 @@ int main(void) {
 	}
 	// Don't use device before ipcon is connected
 
-	// Get current acceleration (unit is g/1000)
+	// Get current acceleration
 	int16_t x, y, z;
 	if(accelerometer_get_acceleration(&a, &x, &y, &z) < 0) {
 		fprintf(stderr, "Could not get acceleration, probably timeout\n");
 		return 1;
 	}
 
-	printf("Acceleration[X]: %f g\n", x/1000.0);
-	printf("Acceleration[Y]: %f g\n", y/1000.0);
-	printf("Acceleration[Z]: %f g\n", z/1000.0);
+	printf("Acceleration [X]: %f g\n", x/1000.0);
+	printf("Acceleration [Y]: %f g\n", y/1000.0);
+	printf("Acceleration [Z]: %f g\n", z/1000.0);
 
 	printf("Press key to exit\n");
 	getchar();

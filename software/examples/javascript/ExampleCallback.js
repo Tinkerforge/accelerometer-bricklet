@@ -25,11 +25,11 @@ ipcon.on(Tinkerforge.IPConnection.CALLBACK_CONNECTED,
 
 // Register acceleration callback
 a.on(Tinkerforge.BrickletAccelerometer.CALLBACK_ACCELERATION,
-    // Callback function for acceleration callback (parameters have unit g/1000)
+    // Callback function for acceleration callback
     function (x, y, z) {
-        console.log('Acceleration[X]: ' + x/1000.0 + ' g');
-        console.log('Acceleration[Y]: ' + y/1000.0 + ' g');
-        console.log('Acceleration[Z]: ' + z/1000.0 + ' g');
+        console.log('Acceleration [X]: ' + x/1000.0 + ' g');
+        console.log('Acceleration [Y]: ' + y/1000.0 + ' g');
+        console.log('Acceleration [Z]: ' + z/1000.0 + ' g');
         console.log();
     }
 );

@@ -22,14 +22,14 @@ Notebook[{
    RowBox[{"a", "@", RowBox[{"SetDebouncePeriod", "[", "10000", "]"}]}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Callback function for acceleration reached callback (parameters have unit g/1000)", "*)"}],
-   RowBox[{RowBox[{"AccelerationReachedCB", "[", RowBox[{"sender_", ",", "x_", ",", "y_", ",", "z_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Module", "[", RowBox[{RowBox[{"{", "}"}], ",", RowBox[{"\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[X]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"x", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[Y]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"y", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Acceleration[Z]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"z", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], "\[IndentingNewLine]"}]}], "]"}]}],
+   RowBox[{"(*", "Callback function for acceleration reached callback", "*)"}],
+   RowBox[{RowBox[{"AccelerationReachedCB", "[", RowBox[{"sender_", ",", "x_", ",", "y_", ",", "z_"}], "]"}], ":=", "\[IndentingNewLine]", RowBox[{"Module", "[", RowBox[{RowBox[{"{", "}"}], ",", RowBox[{"\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Acceleration [X]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"x", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Acceleration [Y]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"y", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", RowBox[{"Print", "[", RowBox[{"\"\<Acceleration [Z]: \>\"", "<>", RowBox[{"ToString", "[", RowBox[{"N", "[", RowBox[{"Quantity", "[", RowBox[{"z", ",", "\"\<g/1000\>\""}], "]"}], "]"}], "]"}]}], "]"}], "\[IndentingNewLine]"}]}], "]"}]}],
    RowBox[{"
 "}],
    RowBox[{"AddEventHandler", "[", RowBox[{RowBox[{"a", "@", "AccelerationReachedCallback"}], ",", "AccelerationReachedCB"}], "]"}],
    RowBox[{"
 "}],
-   RowBox[{"(*", "Configure threshold for acceleration ", "\"\<greater than 2 g, 2 g, 2 g\>\"", " (unit is g/1000)", "*)"}],
+   RowBox[{"(*", "Configure threshold for acceleration ", "\"\<greater than 2 g, 2 g, 2 g\>\"", "", "*)"}],
    RowBox[{"option", "=", "Tinkerforge`BrickletAccelerometer`THRESHOLDUOPTIONUGREATER"}],
    RowBox[{"a", "@", RowBox[{"SetAccelerationCallbackThreshold", "[", RowBox[{"option", ",", RowBox[{"2", "*", "1000"}], ",", "0", ",", RowBox[{"2", "*", "1000"}], ",", "0", ",", RowBox[{"2", "*", "1000"}], ",", "0"}], "]"}]}],
    RowBox[{"

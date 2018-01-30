@@ -50,11 +50,11 @@
 
                 // Register acceleration callback
                 a.on(Tinkerforge.BrickletAccelerometer.CALLBACK_ACCELERATION,
-                    // Callback function for acceleration callback (parameters have unit g/1000)
+                    // Callback function for acceleration callback
                     function (x, y, z) {
-                        textArea.value += 'Acceleration[X]: ' + x/1000.0 + ' g\n';
-                        textArea.value += 'Acceleration[Y]: ' + y/1000.0 + ' g\n';
-                        textArea.value += 'Acceleration[Z]: ' + z/1000.0 + ' g\n';
+                        textArea.value += 'Acceleration [X]: ' + x/1000.0 + ' g\n';
+                        textArea.value += 'Acceleration [Y]: ' + y/1000.0 + ' g\n';
+                        textArea.value += 'Acceleration [Z]: ' + z/1000.0 + ' g\n';
                         textArea.value += '\n';
                         textArea.scrollTop = textArea.scrollHeight;
                     }

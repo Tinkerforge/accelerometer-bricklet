@@ -18,12 +18,12 @@ public class ExampleSimple {
 		ipcon.connect(HOST, PORT); // Connect to brickd
 		// Don't use device before ipcon is connected
 
-		// Get current acceleration (unit is g/1000)
+		// Get current acceleration
 		Acceleration acceleration = a.getAcceleration(); // Can throw com.tinkerforge.TimeoutException
 
-		System.out.println("Acceleration[X]: " + acceleration.x/1000.0 + " g");
-		System.out.println("Acceleration[Y]: " + acceleration.y/1000.0 + " g");
-		System.out.println("Acceleration[Z]: " + acceleration.z/1000.0 + " g");
+		System.out.println("Acceleration [X]: " + acceleration.x/1000.0 + " g");
+		System.out.println("Acceleration [Y]: " + acceleration.y/1000.0 + " g");
+		System.out.println("Acceleration [Z]: " + acceleration.z/1000.0 + " g");
 
 		System.out.println("Press key to exit"); System.in.read();
 		ipcon.disconnect();
