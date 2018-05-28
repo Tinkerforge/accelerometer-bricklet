@@ -10,9 +10,8 @@ ipcon=NETNew["Tinkerforge.IPConnection"]
 a=NETNew["Tinkerforge.BrickletAccelerometer",uid,ipcon]
 ipcon@Connect[host,port]
 
-x=0;y=0;z=0
-
 (*Get current acceleration*)
+x=0;y=0;z=0
 a@GetAcceleration[x,y,z]
 
 Print["Acceleration [X]: "<>ToString[N[Quantity[x,"g/1000"]]]]
