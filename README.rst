@@ -48,10 +48,10 @@ and brickletlib (https://github.com/Tinkerforge/brickletlib).
 You can either clone it directly in software/src/ or clone it in a
 separate folder and symlink it into software/src/
 (ln -s bricklib_path/bricklib project_path/software/src/ and
-ln -s brickletlib_path/brickletlib project_path/software/src/). 
-Finally make sure to have CMake installed 
+ln -s brickletlib_path/brickletlib project_path/software/src/).
+Finally make sure to have CMake installed
 (http://www.cmake.org/cmake/resources/software.html).
 
-After that you can build the firmware by invoking make in software/. 
-The firmware (.bin) can then be found in software/build/ and uploaded 
+After that you can build the firmware by invoking make in software/.
+The firmware (.bin) can then be found in software/build/ and uploaded
 with brickv (click button "Flashing" on start screen).
