@@ -19,9 +19,9 @@ func main() {
 	// Don't use device before ipcon is connected.
 
 	a.RegisterAccelerationCallback(func(x int16, y int16, z int16) {
-		fmt.Printf("Acceleration [X]: %d g\n", float64(x)/1000.0)
-		fmt.Printf("Acceleration [Y]: %d g\n", float64(y)/1000.0)
-		fmt.Printf("Acceleration [Z]: %d g\n", float64(z)/1000.0)
+		fmt.Printf("Acceleration [X]: %f g\n", float64(x)/1000.0)
+		fmt.Printf("Acceleration [Y]: %f g\n", float64(y)/1000.0)
+		fmt.Printf("Acceleration [Z]: %f g\n", float64(z)/1000.0)
 		fmt.Println()
 	})
 
