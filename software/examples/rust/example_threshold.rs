@@ -22,18 +22,9 @@ fn main() -> Result<(), Box<dyn Error>> {
     // is dropped, so there is no need for manual cleanup.
     thread::spawn(move || {
         for acceleration_reached in acceleration_reached_receiver {
-            println!(
-                "Acceleration [X]: {} g",
-                acceleration_reached.x as f32 / 1000.0
-            );
-            println!(
-                "Acceleration [Y]: {} g",
-                acceleration_reached.y as f32 / 1000.0
-            );
-            println!(
-                "Acceleration [Z]: {} g",
-                acceleration_reached.z as f32 / 1000.0
-            );
+            println!("Acceleration [X]: {} g", acceleration_reached.x as f32 / 1000.0);
+            println!("Acceleration [Y]: {} g", acceleration_reached.y as f32 / 1000.0);
+            println!("Acceleration [Z]: {} g", acceleration_reached.z as f32 / 1000.0);
             println!();
         }
     });
