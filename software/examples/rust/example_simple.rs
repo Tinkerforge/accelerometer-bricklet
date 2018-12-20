@@ -14,11 +14,11 @@ fn main() -> Result<(), Box<dyn Error>> {
                                           // Don't use device before ipcon is connected.
 
     // Get current acceleration.
-    let get_acceleration_result = a.get_acceleration().recv()?;
+    let acceleration = a.get_acceleration().recv()?;
 
-    println!("Acceleration [X]: {} g", get_acceleration_result.x as f32 / 1000.0);
-    println!("Acceleration [Y]: {} g", get_acceleration_result.y as f32 / 1000.0);
-    println!("Acceleration [Z]: {} g", get_acceleration_result.z as f32 / 1000.0);
+    println!("Acceleration [X]: {} g", acceleration.x as f32 / 1000.0);
+    println!("Acceleration [Y]: {} g", acceleration.y as f32 / 1000.0);
+    println!("Acceleration [Z]: {} g", acceleration.z as f32 / 1000.0);
 
     println!("Press enter to exit.");
     let mut _input = String::new();
