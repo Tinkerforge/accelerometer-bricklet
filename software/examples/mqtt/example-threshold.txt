@@ -1,0 +1,12 @@
+
+
+# Change XYZ to the UID of your Accelerometer Bricklet
+
+setup:
+	# Get threshold callbacks with a debounce time of 10 seconds (10000ms)
+	publish '{"debounce": 10000}' to tinkerforge/request/accelerometer_bricklet/XYZ/set_debounce_period
+	# Handle incoming acceleration reached callbacks
+	subscribe to tinkerforge/callback/accelerometer_bricklet/XYZ/acceleration_reached
+	publish '{"register": true}' to tinkerforge/register/accelerometer_bricklet/XYZ/acceleration_reached # Register acceleration_reached callback
+	# Configure threshold for acceleration "greater than 2 g, 2 g, 2 g"
+	publish '{"option": "greater", "min_x": 2000, "max_x": 0, "min_y": 2000, "max_y": 0, "min_z": 2000, "max_z": 0}' to tinkerforge/request/accelerometer_bricklet/XYZ/set_acceleration_callback_threshold
