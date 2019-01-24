@@ -2,5 +2,5 @@
 
 setup:
 	# Get current acceleration
-	subscribe to tinkerforge/response/accelerometer/XYZ/get_acceleration
+	subscribe to tinkerforge/response/accelerometer_bricklet/XYZ/get_acceleration
 	publish '' to tinkerforge/request/accelerometer_bricklet/XYZ/get_acceleration 
