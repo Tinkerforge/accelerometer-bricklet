@@ -39,7 +39,7 @@ int main(void) {
 	// Register acceleration reached callback to function cb_acceleration_reached
 	accelerometer_register_callback(&a,
 	                                ACCELEROMETER_CALLBACK_ACCELERATION_REACHED,
-	                                (void *)cb_acceleration_reached,
+	                                (void (*)(void))cb_acceleration_reached,
 	                                NULL);
 
 	// Configure threshold for acceleration "greater than 2 g, 2 g, 2 g"
