@@ -31,5 +31,5 @@ if __name__ == "__main__":
     # Configure threshold for acceleration "greater than 2 g, 2 g, 2 g"
     a.set_acceleration_callback_threshold(">", 2*1000, 0, 2*1000, 0, 2*1000, 0)
 
-    raw_input("Press key to exit\n") # Use input() in Python 3
+    input("Press key to exit\n") # Use raw_input() in Python 2
     ipcon.disconnect()
